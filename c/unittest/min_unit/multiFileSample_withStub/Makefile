@@ -1,6 +1,6 @@
 # プログラム名とオブジェクトファイル名
 PROGRAM = main
-OBJS = main.o
+OBJS = main.o calc.o
 
 # 定義済みマクロの再定義
 CC = gcc
@@ -20,6 +20,10 @@ $(PROGRAM): $(OBJS)
 # サフィックスルール
 .c.o:
 	$(CC) $(CFLAGS) -c $<
+
+# 依存関係
+main.o: calc.h
+calc.o: calc.h
 
 # ファイル削除用ターゲット
 .PHONY: clean

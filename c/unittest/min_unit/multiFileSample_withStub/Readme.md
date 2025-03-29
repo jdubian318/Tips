@@ -1,7 +1,7 @@
 # 概要
 
 このサンプルは、MinUnitというFrameworkを使った
-１ファイルのみのシンプルなサンプル。
+複数ファイルを使用したサンプル。
 
 
 # build & exec
@@ -9,7 +9,8 @@
 ```bash
 $ make
 gcc -Wall -O2 -c main.c
-gcc -o main main.o
+gcc -Wall -O2 -c calc.c
+gcc -o main main.o calc.o
 
 $ ./main
 ALL TESTS PASSED
@@ -20,5 +21,5 @@ Tests run: 2
 
 ```bash
 $ make clean
-rm -f main main.o depend.inc
+rm -f main main.o calc.o
 ```
