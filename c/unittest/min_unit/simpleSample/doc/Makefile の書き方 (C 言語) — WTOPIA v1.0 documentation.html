@@ -1,0 +1,709 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Makefile の書き方 (C 言語) — WTOPIA v1.0 documentation</title>
+    <link rel="stylesheet" href="Makefile%20%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%20(C%20%E8%A8%80%E8%AA%9E)%20%E2%80%94%20WTOPIA%20v1.0%20documentation_files/nature.css" type="text/css">
+    <link rel="stylesheet" href="Makefile%20%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%20(C%20%E8%A8%80%E8%AA%9E)%20%E2%80%94%20WTOPIA%20v1.0%20documentation_files/pygments.css" type="text/css">
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="Makefile%20%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%20(C%20%E8%A8%80%E8%AA%9E)%20%E2%80%94%20WTOPIA%20v1.0%20documentation_files/jquery.js"></script>
+    <script type="text/javascript" src="Makefile%20%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%20(C%20%E8%A8%80%E8%AA%9E)%20%E2%80%94%20WTOPIA%20v1.0%20documentation_files/underscore.js"></script>
+    <script type="text/javascript" src="Makefile%20%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%20(C%20%E8%A8%80%E8%AA%9E)%20%E2%80%94%20WTOPIA%20v1.0%20documentation_files/doctools.js"></script>
+    <link rel="top" title="WTOPIA v1.0 documentation" href="https://ie.u-ryukyu.ac.jp/~e085739/index.html">
+    <link rel="up" title="Makefile の書き方" href="https://ie.u-ryukyu.ac.jp/~e085739/c.makefile.html">
+    <link rel="next" title="UNIX プログラミング教室" href="https://ie.u-ryukyu.ac.jp/~e085739/c.syscall.html">
+    <link rel="prev" title="Makefile の書き方" href="https://ie.u-ryukyu.ac.jp/~e085739/c.makefile.html"> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://ie.u-ryukyu.ac.jp/~e085739/genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="https://ie.u-ryukyu.ac.jp/~e085739/c.syscall.html" title="UNIX プログラミング教室" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="https://ie.u-ryukyu.ac.jp/~e085739/c.makefile.html" title="Makefile の書き方" accesskey="P">previous</a> |</li>
+        <li><a href="https://ie.u-ryukyu.ac.jp/~e085739/index.html">WTOPIA v1.0 documentation</a> »</li>
+          <li><a href="https://ie.u-ryukyu.ac.jp/~e085739/c.html">C</a> »</li>
+          <li><a href="https://ie.u-ryukyu.ac.jp/~e085739/c.makefile.html" accesskey="U">Makefile の書き方</a> »</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="makefile-c">
+<h1>Makefile の書き方 (C 言語)<a class="headerlink" href="#makefile-c" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>始めに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>ここでは, Makefile の中でも GNU make に限って説明する.</p>
+</div>
+<div class="section" id="make">
+<h2>makeってなに?<a class="headerlink" href="#make" title="Permalink to this headline">¶</a></h2>
+<p>ソースファイルを分割して大規模なプログラムを作成していると, コマンドでコンパイルするのが面倒である. また, 一部のソースファイルを書き換えだけなのに全部をコンパイルし直すのは時間の無駄である.</p>
+<p>そんな問題を解決するのが make である. Makefile 
+と呼ばれるテキストファイルに必要なファイルと各ファイルのコンパイルのコマンド, ファイル間の依存関係を記す. そして, “make” 
+というコマンドを実行するだけで, 自動的にコマンドを実行してコンパイルしてくれる. これだけではスクリプトと大差がないのだが, make は 
+Makefile に記された依存関係に基づいて更新されたファイルの内関連のあるものだけを更新することで, コンパイル時間を短くする.</p>
+<p>make は特定のプログラミング言語に依存したものではない. C 言語のソースファイルのコンパイルにも使えるし, Verilog-HDL のシミュレーションにも使えるし, Tex のコンパイルにも使える.</p>
+</div>
+<div class="section" id="id2">
+<h2>make 色々<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>実は make には色々種類がある. 主なものをあげると以下の通り:</p>
+<div class="highlight-python"><pre>Microsoft nmake (Windows)
+Borland make (Windows)
+GNU make (windows, UNIX 系)
+Solaris make (Solaris)</pre>
+</div>
+</div>
+<div class="section" id="make-hello-world">
+<h2>make で Hello World!<a class="headerlink" href="#make-hello-world" title="Permalink to this headline">¶</a></h2>
+<p>hello.c</p>
+<div class="highlight-c"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="cm">/* hello.c */</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Hello C World</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></tbody></table></div>
+<p>同じディレクトリに “GNUmakefile” というファイルを作成し, 以下の内容を記述してください</p>
+<p>GNUmakefile</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile for hello.c</span>
+<span class="nf">hello</span><span class="o">:</span> <span class="m">hello.c</span>
+	gcc -Wall -O2 -o hello hello.c
+</pre></div>
+</div>
+<p>三行目の先頭は空白文字ではなくてタブ文字 (Tab) なので注意してください! 一行目はコメントである.</p>
+<p>コマンドから make を実行すると以下のようにコンパイルしてくれる:</p>
+<div class="highlight-python"><pre>[cactus:~/code_c/mkfile/helloworld]% make
+gcc -Wall -O2 -o hello hello.c</pre>
+</div>
+<p>この後もう一度 make を実行してみよう:</p>
+<div class="highlight-python"><pre>[cactus:~/code_c/mkfile/helloworld]% make
+make: `hello' is up to date.</pre>
+</div>
+<p>hello.c が更新されていない (hello.c より hello のほうが日付が新しい) のでコンパイルされない. こんな感じで, 必要な部分のみコンパイルしてくれる.</p>
+<p>GNUmakefile のファイル名を指定する場合は:</p>
+<div class="highlight-python"><pre>[cactus:~/code_c/mkfile/helloworld]% make -f GNUmakefile
+make: `hello' is up to date.</pre>
+</div>
+<p>とする. ファイル名を指定しない場合は, “GNUmakefile”, “makefile”, “Makefile” の順に検索する.</p>
+</div>
+<div class="section" id="makefile">
+<h2>Makefile の基本文法: 依存関係行<a class="headerlink" href="#makefile" title="Permalink to this headline">¶</a></h2>
+<p>Makefile の基本的な構文は依存関係を表す依存関係行である. 依存関係行はこんな感じである:</p>
+<div class="highlight-python"><pre>ターゲット名: 依存ファイル名 1 依存ファイル名 2 依存ファイル名 3
+              コマンド行 1
+              コマンド行 2
+              コマンド行 3</pre>
+</div>
+<p>ターゲット名は一般的に生成されるファイルのファイル名にする (そうでない場合については後述する).</p>
+<p>ターゲット名の後い ”:” を書いて, その後にスペース区切りで依存するファイルのファイル名を記述する. これらのファイルのうちどれか一つでも更新されるとコマンドが実行される.</p>
+<p>ターゲット名を指定して make を実行する場合は:</p>
+<div class="highlight-python"><pre>make ターゲット名</pre>
+</div>
+<p>とする. ターゲットを省略すると, Makefile の中で先頭のターゲットが実行される.</p>
+<p>ターゲット名から始まる行の次の行から実行するコマンドを記述する. コマンドを記述する場合は必ず先頭にタブ文字を入れる必要がある.</p>
+<p>例として, C 言語の分割コンパイルをしてみよう. 分割コンパイル用に以下のファイルを用意する.</p>
+<p>hello.c</p>
+<div class="highlight-c"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="cm">/* hello.c */</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+  <span class="n">print</span><span class="p">();</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></tbody></table></div>
+<p>print.c</p>
+<div class="highlight-c"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="cm">/* print.c */</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"This is a test1.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"This is a test2.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></tbody></table></div>
+<p>Makefile はこんな感じで</p>
+<p>Makefile</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile</span>
+<span class="nf">hello</span><span class="o">:</span> <span class="m">hello.c print.c</span>
+	gcc -Wall -O2 -o hello hello.c print.c
+</pre></div>
+</div>
+<p>hello.c または print.c のいずれかを更新するとコンパイルしくれる. しかし, このままでは更新されてないファイルもコンパイルし直されてしまうので, 効率よくなるために, すこし変更しよう.</p>
+<p>Makefile2</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile2</span>
+<span class="nf">hello</span><span class="o">:</span> <span class="m">hello.o print.o</span>
+	gcc -Wall -O2 -o hello hello.o print.o
+
+<span class="nf">hello.o</span><span class="o">:</span> <span class="m">hello.c</span>
+	gcc -c hello.c
+
+<span class="nf">print.o</span><span class="o">:</span> <span class="m">print.c</span>
+	gcc -c print.c
+</pre></div>
+</div>
+<p>こうして make -f Makefile2 を実行すると,:</p>
+<div class="highlight-python"><pre>[cactus:~/code_c/mkfile/divprint]% make -f Makefile2
+gcc -c hello.c
+gcc -c print.c
+gcc -Wall -O2 -o hello hello.o print.o</pre>
+</div>
+<p>となる. ここで, print.c を更新し, make -f Makefile2 を実行すると,:</p>
+<div class="highlight-python"><pre>[cactus:~/code_c/mkfile/divprint]% make -f Makefile2
+gcc -c print.c
+gcc -Wall -O2 -o hello hello.o print.o</pre>
+</div>
+<p>となって, print.o だけが更新されている.</p>
+</div>
+<div class="section" id="id3">
+<h2>依存関係行の応用その 1<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>依存関係行を使った応用について説明する. プログラムをコンパイルすると中間ファイルなどができていちいち削除するのが面倒である. そこで, Makefile に以下の行をつけることにする</p>
+<p>Makefile</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile</span>
+
+<span class="nf">hello</span><span class="o">:</span> <span class="m">hello.o print.o</span>
+	gcc -Wall -O2 -o hello hello.o print.o
+
+<span class="nf">hello.o</span><span class="o">:</span> <span class="m">hello.c</span>
+	gcc -c hello.c
+
+<span class="nf">print.o</span><span class="o">:</span> <span class="m">print.c</span>
+	gcc -c print.c
+
+<span class="nf">clean</span><span class="o">:</span>
+	rm -f hello hello.o print.o
+</pre></div>
+</div>
+<p>こうしてコマンドで以下のように実行する:</p>
+<div class="highlight-python"><pre>[cactus:~/code_c/mkfile/applied1]% make clean
+rm -f hello hello.o print.o</pre>
+</div>
+<p>不要なファイルをすべて削除してくれる. “clean” は依存するファイルがなく, clean というファイルを生成するわけでもなく, 
+コマンドを実行である. このようなターゲットを “phony target” と呼ぶ. phony ターゲットを使用する場合, 
+ターゲット名と同じ名前のファイルがあると変なことになる:</p>
+<div class="highlight-python"><pre>[cactus:~/code_c/mkfile/applied1]% touch clean
+[cactus:~/code_c/mkfile/applied1]% make clean
+make: `clean' is up to date.</pre>
+</div>
+<p>これをさけるためには Makefile を以下のように書き換える:</p>
+<div class="highlight-python"><pre>.PHONY: clean
+clean:
+      rm -f hello hello.o print.o</pre>
+</div>
+<p>こうすると clean というファイルが存在していても問題ない.</p>
+</div>
+<div class="section" id="id4">
+<h2>依存関係行の応用その 2<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>もう一つの応用は, 複数のプログラムを作成するときに役に立つ. ここでは以下のソースファイルを追加する.</p>
+<p>som.c</p>
+<div class="highlight-c"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="cm">/* som.c */</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"som test 1</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"som test 2</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></tbody></table></div>
+<p>そして Makefile を以下のようにする.</p>
+<p>Makefile</p>
+<p>これで hello と som を作ろうとすると,:</p>
+<div class="highlight-python"><pre>[cactus:~/code_c/mkfile/applied2]% make hello
+gcc -c hello.c
+gcc -c print.c
+gcc -Wall -O2 -o hello hello.o print.o
+[cactus:~/code_c/mkfile/applied2]% make som
+gcc -c som.c
+gcc -Wall -O2 -o som som.o</pre>
+</div>
+<p>となり, 面倒である. そこで, ダミーの依存関係を追加する</p>
+<p>Makefile</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile</span>
+
+<span class="nf">hello</span><span class="o">:</span> <span class="m">hello.o print.o</span>
+	gcc -Wall -O2 -o hello hello.o print.o
+
+<span class="nf">hello.o</span><span class="o">:</span> <span class="m">hello.c</span>
+	gcc -c hello.c
+
+<span class="nf">print.o</span><span class="o">:</span> <span class="m">print.c</span>
+	gcc -c print.c
+
+<span class="nf">clean</span><span class="o">:</span>
+	rm -f hello hello.o print.o
+</pre></div>
+</div>
+<p>先端に追加した “all” がミソである. これで make を実行すると,:</p>
+<div class="highlight-python"><pre>[cactus:~/code_c/mkfile/applied2]% make
+gcc -c hello.c
+gcc -c print.c
+gcc -Wall -O2 -o hello hello.o print.o
+gcc -c som.c
+gcc -Wall -O2 -o som som.o</pre>
+</div>
+<p>となって, ２つのプログラムを一度に作成することができた.</p>
+</div>
+<div class="section" id="id5">
+<h2>依存関係行の応用その 3<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>C 言語ではコンパイルしないけどソースファイルにインクルードされるヘッダファイルが存在する. ヘッダファイルが更新されたときにソースファイルをコンパイルし直すにはどうしたらよいのだろうか?</p>
+<p>この問題を解決するには, 同じターゲット名の依存関係行を追加する. 例えば以下のようなファイルを用意する.</p>
+<p>str.h</p>
+<div class="highlight-c"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="cm">/* str.h */</span>
+<span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"This is a test"</span><span class="p">;</span>
+</pre></div>
+</td></tr></tbody></table></div>
+<p>main.c</p>
+<div class="highlight-c"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="cm">/* main.c */</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include "str.h"</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></tbody></table></div>
+<p>Makefile</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile</span>
+<span class="nf">.PHONY</span><span class="o">:</span> <span class="m">all</span>
+<span class="nf">all</span><span class="o">:</span> <span class="m">main</span>
+
+<span class="nf">main</span><span class="o">:</span> <span class="m">main.o</span>
+	gcc -o main main.o
+
+<span class="nf">main.o</span><span class="o">:</span> <span class="m">main.c</span>
+	gcc -c main.c
+
+<span class="nf">.PHONY</span><span class="o">:</span> <span class="m">clean</span>
+<span class="nf">clean</span><span class="o">:</span>
+	rm -rf main main.o
+</pre></div>
+</div>
+<p>make を実行すると,:</p>
+<div class="highlight-python"><pre>[cactus:~/code_c/mkfile/applied3]% make
+gcc -c main.c
+gcc -o main main.o</pre>
+</div>
+<p>となる. ここで “str.h” を書き換える:</p>
+<div class="highlight-python"><pre>/* str.h */
+char str[] = "This is another test";</pre>
+</div>
+<p>そして, make を実行すると,:</p>
+<div class="highlight-python"><pre>[cactus:~/code_c/mkfile/applied3]% make
+make: Nothing to be done for `all'.</pre>
+</div>
+<p>といって更新してくれない. そこで, 以下のように “makefile” を書き換える.</p>
+<p>Makefile2</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile2</span>
+<span class="nf">.PHONY</span><span class="o">:</span> <span class="m">all</span>
+<span class="nf">all</span><span class="o">:</span> <span class="m">main</span>
+
+<span class="nf">main</span><span class="o">:</span> <span class="m">main.o</span>
+	gcc -o main main.o
+
+<span class="nf">main.o</span><span class="o">:</span> <span class="m">main.c</span>
+	gcc -c main.c
+
+<span class="nf">main.o</span><span class="o">:</span> <span class="m">str.h</span>
+
+<span class="nf">.PHONY</span><span class="o">:</span> <span class="m">clean</span>
+<span class="nf">clean</span><span class="o">:</span>
+	rm -rf main main.o
+</pre></div>
+</div>
+<p>“main.o: str.h” という行がポイントである. そして, make を実行すると,:</p>
+<div class="highlight-python"><pre>[cactus:~/code_c/mkfile/applied3]% make -f Makefile2
+gcc -c main.c
+gcc -o main main.o</pre>
+</div>
+<p>となり, ちゃんと更新される.</p>
+</div>
+<div class="section" id="id6">
+<h2>マクロ<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>ここから少し難しくなる. これまでは Makefile にファイル名やコマンド名を直接書いていた. しかし, マクロを使うと直接書かなくてもすみ, 他への流用などが用意となる. マクロを定義するには以下の用にする:</p>
+<div class="highlight-python"><pre>マクロ名 = 文字列</pre>
+</div>
+<p>マクロを参照するには,:</p>
+<div class="highlight-python"><pre>$(マクロ名)
+または
+${マクロ名}</pre>
+</div>
+<p>とする. 実際に使ってみるとこんな感じである.</p>
+<p>Makefile</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile</span>
+
+<span class="nv">objs</span> <span class="o">=</span> hello.o print.o
+
+hello: <span class="k">$(</span>objs<span class="k">)</span>
+	gcc -Wall -O2 -o hello <span class="k">$(</span>objs<span class="k">)</span>
+
+hello.o: hello.c
+	gcc -c hello.c
+
+print.o: print.c
+	gcc -c print.c
+
+.PHONY: clean
+clean:
+	rm -f hello <span class="k">$(</span>objs<span class="k">)</span>
+</pre></div>
+</div>
+<p>ここでは, オブジェクトファイル名を “objs” というマクロとして定義している. “$(objs)” は “hello.o print.o” に置換される.</p>
+<p>GNU make では, 定義済みマクロとして以下のものがある.</p>
+<a class="reference internal image-reference" href="https://ie.u-ryukyu.ac.jp/~e085739/_images/macro1.png"><img alt="_images/macro1.png" src="Makefile%20%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%20(C%20%E8%A8%80%E8%AA%9E)%20%E2%80%94%20WTOPIA%20v1.0%20documentation_files/macro1.png" style="width: 481.0px; height: 594.0px;"></a>
+<p>上記のプログラムの引数用のマクロもある</p>
+<a class="reference internal image-reference" href="https://ie.u-ryukyu.ac.jp/~e085739/_images/macro2.png"><img alt="_images/macro2.png" src="Makefile%20%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%20(C%20%E8%A8%80%E8%AA%9E)%20%E2%80%94%20WTOPIA%20v1.0%20documentation_files/macro2.png" style="width: 243.0px; height: 404.0px;"></a>
+<p>これらのマクロは再定義可能である. 例えば, こんな感じである.</p>
+<p>Makefile2</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile2</span>
+
+<span class="nv">OBJS</span> <span class="o">=</span> hello.o print.o
+<span class="nv">CC</span> <span class="o">=</span> gcc
+
+
+hello: <span class="k">$(</span>OBJS<span class="k">)</span>
+	<span class="k">$(</span>CC<span class="k">)</span> -Wall -O2 -o hello <span class="k">$(</span>OBJS<span class="k">)</span>
+
+hello.o: hello.c
+	<span class="k">$(</span>CC<span class="k">)</span> -c hello.c
+
+print.o: print.c
+	<span class="k">$(</span>CC<span class="k">)</span> -c print.c
+
+.PHONY: clean
+clean:
+	<span class="k">$(</span>RM<span class="k">)</span> hello <span class="k">$(</span>objs<span class="k">)</span>
+</pre></div>
+</div>
+<p>ここでは “CC” というマクロを “gcc” という文字列で再定義している. また, “RM” というマクロをそのまま使用している.</p>
+</div>
+<div class="section" id="id7">
+<h2>内部マクロ<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>前述のマクロは単純に文字列に置換するだけだったが, 内部マクロはもう少し複雑になる. 例えば, こんな感じの内部マクロがある.</p>
+<p>Makefile</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile2</span>
+
+<span class="nv">OBJS</span> <span class="o">=</span> hello.o print.o
+<span class="nv">CC</span> <span class="o">=</span> gcc
+
+hello: <span class="k">$(</span>OBJS<span class="k">)</span>
+	<span class="k">$(</span>CC<span class="k">)</span> -Wall -O2 -o <span class="nv">$@</span> <span class="k">$(</span>OBJS<span class="k">)</span>
+
+hello.o: hello.c
+	<span class="k">$(</span>CC<span class="k">)</span> -c <span class="nv">$&lt;</span>
+
+print.o: print.c
+	<span class="k">$(</span>CC<span class="k">)</span> -c <span class="nv">$&lt;</span>
+
+.PHONY: clean
+clean:
+	<span class="k">$(</span>RM<span class="k">)</span> hello <span class="k">$(</span>objs<span class="k">)</span>
+</pre></div>
+</div>
+<p>ここでは, “$@” という内部マクロを使用している. これはターゲット名を表すものである. そのため上記の記述は,:</p>
+<div class="highlight-python"><pre>hello: $(OBJS)
+       $(CC) -o hello $(OBJS)</pre>
+</div>
+<p>と解釈される.</p>
+<p>また, 以下のものもある.:</p>
+<div class="highlight-python"><pre>hello.o: hello.c
+         $(CC) -c $&lt;</pre>
+</div>
+<p>ここでは “$&lt;” という内部マクロを使用している. これは依存ファイルの先頭のファイル名を表すものである. そのため上記の記述は,:</p>
+<div class="highlight-python"><pre>hello.o: hello.c
+         $(CC) -c hello.c</pre>
+</div>
+<p>と解釈される. 依存ファイル名のリストを表す “$^” という内部マクロもある.</p>
+<p>内部マクロをまとめるとこんな感じである.</p>
+<a class="reference internal image-reference" href="https://ie.u-ryukyu.ac.jp/~e085739/_images/inmacro.png"><img alt="_images/inmacro.png" src="Makefile%20%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%20(C%20%E8%A8%80%E8%AA%9E)%20%E2%80%94%20WTOPIA%20v1.0%20documentation_files/inmacro.png" style="width: 762.0px; height: 236.0px;"></a>
+<p>マクロと内部マクロを駆使すると, Makefile はこんな感じになる.</p>
+<p>Makefile2</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile2</span>
+
+<span class="nv">PROGRAM</span> <span class="o">=</span> hello
+<span class="nv">OBJS</span> <span class="o">=</span> hello.o print.o
+<span class="nv">CC</span> <span class="o">=</span> gcc
+<span class="nv">CFLAGS</span> <span class="o">=</span> -Wall -O2
+
+<span class="k">$(</span>PROGRAM<span class="k">)</span>: <span class="k">$(</span>OBJS<span class="k">)</span>
+	<span class="k">$(</span>CC<span class="k">)</span> -o <span class="k">$(</span>PROGRAM<span class="k">)</span> <span class="nv">$^</span>
+
+hello.o: hello.c
+	<span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span> -c <span class="nv">$&lt;</span>
+
+print.o: print.c
+	<span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span> -c <span class="nv">$&lt;</span>
+
+.PHONY: clean
+clean:
+	<span class="k">$(</span>RM<span class="k">)</span> <span class="k">$(</span>PROGRAM<span class="k">)</span> <span class="k">$(</span>OBJS<span class="k">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>サフィックスルール<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>サフィックスルールとは, ファイル名の拡張子 (サフィックス) ごとにルールを定義するものである. 例えばこんな感じである:</p>
+<div class="highlight-python"><pre>SUFFIXES: .o .c
+
+.c.o:
+      $(CC) $(CFLAGS) -c $&lt;</pre>
+</div>
+<p>”.SUFFIXE” は依存関係行と同じ形であるが, 意味が違う. サフィックスルールを適用する拡張子のリストを書く.</p>
+<p>”.c.o” がサフィックスルールとなっており, 拡張子が ”.o” のファイルは拡張子 ”.c” 変えたファイルに依存していることを表す. 変換はコマンドで表されている.</p>
+<p>例えば, ターゲット名が “hoge.o” ならば make はこのサフィックスルールより “hoge.c” に依存していると判断して, コマンドを実行し “hoge.o” を生成する.</p>
+<p>サフィックスルールを用いると, こんな感じで書ける.</p>
+<p>Makefile3</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile3</span>
+
+<span class="c"># プログラム名とオブジェクトファイル名</span>
+<span class="nv">PROGRAM</span> <span class="o">=</span> hello
+<span class="nv">OBJS</span> <span class="o">=</span> hello.o print.o
+
+<span class="c"># 定義済みマクロの再定義</span>
+<span class="nv">CC</span> <span class="o">=</span> gcc
+<span class="nv">CFLAGS</span> <span class="o">=</span> -Wall -O2
+
+<span class="c"># サフィックスルール適用対象の拡張子の定義</span>
+.SUFFIXES: .c .o
+
+<span class="c"># プライマリターゲット</span>
+<span class="k">$(</span>PROGRAM<span class="k">)</span>: <span class="k">$(</span>OBJS<span class="k">)</span>
+	<span class="k">$(</span>CC<span class="k">)</span> -o <span class="k">$(</span>PROGRAM<span class="k">)</span> <span class="nv">$^</span>
+
+<span class="c"># サフィックスルール</span>
+.c.o:
+	<span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span> -c <span class="nv">$&lt;</span>
+
+<span class="c"># ファイル削除用ターゲット</span>
+.PHONY: clean
+clean:
+	<span class="k">$(</span>RM<span class="k">)</span> <span class="k">$(</span>PROGRAM<span class="k">)</span> <span class="k">$(</span>OBJS<span class="k">)</span>
+</pre></div>
+</div>
+<p>ここまでくると, あとは “PROGRAM” や “OBJS” を書き換えるだけでいくらでも流用ができる. ちなみに, ヘッダファイルの依存関係だけは自分で記述しなければならない. 例えばこんな感じである.</p>
+<p>Makefile_other</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile_other</span>
+
+<span class="c"># プログラム名とオブジェクトファイル名</span>
+<span class="nv">PROGRAM</span> <span class="o">=</span> main
+<span class="nv">OBJS</span> <span class="o">=</span> main.o
+
+<span class="c"># 定義済みマクロの再定義</span>
+<span class="nv">CC</span> <span class="o">=</span> gcc
+<span class="nv">CFLAGS</span> <span class="o">=</span> -Wall -O2
+
+<span class="c"># サフィックスルール適用対象の拡張子の定義</span>
+.SUFFIXES: .c .o
+
+<span class="c"># プライマリターゲット</span>
+<span class="k">$(</span>PROGRAM<span class="k">)</span>: <span class="k">$(</span>OBJS<span class="k">)</span>
+	<span class="k">$(</span>CC<span class="k">)</span> -o <span class="k">$(</span>PROGRAM<span class="k">)</span> <span class="nv">$^</span>
+
+<span class="c"># サフィックスルール</span>
+.c.o:
+	<span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span> -c <span class="nv">$&lt;</span>
+
+<span class="c"># ファイル削除用ターゲット</span>
+.PHONY: clean
+clean:
+	<span class="k">$(</span>RM<span class="k">)</span> <span class="k">$(</span>PROGRAM<span class="k">)</span> <span class="k">$(</span>OBJS<span class="k">)</span>
+
+<span class="c"># ヘッダファイルの依存関係</span>
+main.o: str.h
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>分割 Makefile<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>プログラムが複雑になって, ディレクトリごとにソースコードを分けるなどしていくと, 一つの Makefile 
+で管理するのは面倒になってくる. そんな時には, Makefile を分割することができる. 例えば, subdir 
+というサブディレクトリの中に別の Makefile があるとした場合, カレントディレクトリの Makefile で:</p>
+<div class="highlight-python"><pre>subsystem:
+      cd subdir &amp;&amp; $(MAKE)
+または
+
+subsystem:
+      $(MAKE) -C subdir</pre>
+</div>
+<p>とする.</p>
+</div>
+<div class="section" id="c">
+<h2>C 言語のヘッダーファイルの依存関係の自動解決<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h2>
+<p>C 言語でプログラミングしている際に, ソースファイルが増えるとヘッダファイルの依存関係をいちいち記述するのは面倒である. いろいろな解決方法があるみたいであるが, とりあえずこんなん考えてみた.</p>
+<p>Makefile_header</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span class="c"># Makefile_header</span>
+
+<span class="c"># プログラム名とオブジェクトファイル名</span>
+<span class="nv">PROGRAM</span> <span class="o">=</span> main
+<span class="nv">OBJS</span> <span class="o">=</span> main.o
+
+<span class="c"># 定義済みマクロの再定義</span>
+<span class="nv">CC</span> <span class="o">=</span> gcc
+<span class="nv">CFLAGS</span> <span class="o">=</span> -Wall -O2
+
+<span class="c"># サフィックスルール適用対象の拡張子の定義</span>
+.SUFFIXES: .c .o
+
+<span class="c"># プライマリターゲット</span>
+.PHONY: all
+all: depend <span class="k">$(</span>PROGRAM<span class="k">)</span>
+
+<span class="c"># プログラムの生成ルール</span>
+<span class="k">$(</span>PROGRAM<span class="k">)</span>: <span class="k">$(</span>OBJS<span class="k">)</span>
+	<span class="k">$(</span>CC<span class="k">)</span> -o <span class="k">$(</span>PROGRAM<span class="k">)</span> <span class="nv">$^</span>
+
+<span class="c"># サフィックスルール</span>
+.c.o:
+	<span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span> -c <span class="nv">$&lt;</span>
+
+<span class="c"># ファイル削除用ターゲット</span>
+.PHONY: clean
+clean:
+	<span class="k">$(</span>RM<span class="k">)</span> <span class="k">$(</span>PROGRAM<span class="k">)</span> <span class="k">$(</span>OBJS<span class="k">)</span> depend.inc
+
+<span class="c"># ヘッダファイルの依存関係</span>
+.PHONY: depend
+depend: <span class="k">$(</span>OBJS:.o<span class="o">=</span>.c<span class="k">)</span>
+	-@ <span class="k">$(</span>RM<span class="k">)</span> depend.inc
+	-@ <span class="k">for </span>i in <span class="nv">$^</span>; <span class="k">do </span>cpp -MM <span class="nv">$$</span>i | sed <span class="s2">"s/\ [_a-zA-Z0-9][_a-zA-Z0-9]*\.c//g"</span> &gt;&gt; depend.inc; <span class="k">done</span>
+
+<span class="cp">-include depend.inc</span>
+</pre></div>
+</div>
+<p>gcc のプリプロセッサである cpp と sed を組み合わせている. cpp は 指定したソースファイルの依存関係を make 
+の形式で出力してくれるオプションを持っている. それを使って, 全ソースファイルの依存関係を “depend.inc” に出力し, 
+それをインクルードしている. “make depend” とコマンドを実行すれば OK である. また, “all: depend 
+$(PROGRAM)” とすることで, make する際に毎回 “depend.inc” を作成するようにしている.</p>
+</div>
+<div class="section" id="id10">
+<h2>その他<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>GNU make には他にも色々な機能がある. また, make を発展させた, autoconf, automake, libtool, などもある. これは OS 間の差異を吸収するためのツールである.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://ie.u-ryukyu.ac.jp/~e085739/index.html">
+              <img class="logo" src="Makefile%20%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%20(C%20%E8%A8%80%E8%AA%9E)%20%E2%80%94%20WTOPIA%20v1.0%20documentation_files/feifei3.png" alt="Logo">
+            </a></p>
+  <h3><a href="https://ie.u-ryukyu.ac.jp/~e085739/index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Makefile の書き方 (C 言語)</a><ul>
+<li><a class="reference internal" href="#id1">始めに</a></li>
+<li><a class="reference internal" href="#make">makeってなに?</a></li>
+<li><a class="reference internal" href="#id2">make 色々</a></li>
+<li><a class="reference internal" href="#make-hello-world">make で Hello World!</a></li>
+<li><a class="reference internal" href="#makefile">Makefile の基本文法: 依存関係行</a></li>
+<li><a class="reference internal" href="#id3">依存関係行の応用その 1</a></li>
+<li><a class="reference internal" href="#id4">依存関係行の応用その 2</a></li>
+<li><a class="reference internal" href="#id5">依存関係行の応用その 3</a></li>
+<li><a class="reference internal" href="#id6">マクロ</a></li>
+<li><a class="reference internal" href="#id7">内部マクロ</a></li>
+<li><a class="reference internal" href="#id8">サフィックスルール</a></li>
+<li><a class="reference internal" href="#id9">分割 Makefile</a></li>
+<li><a class="reference internal" href="#c">C 言語のヘッダーファイルの依存関係の自動解決</a></li>
+<li><a class="reference internal" href="#id10">その他</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="https://ie.u-ryukyu.ac.jp/~e085739/c.makefile.html" title="previous chapter">Makefile の書き方</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="https://ie.u-ryukyu.ac.jp/~e085739/c.syscall.html" title="next chapter">UNIX プログラミング教室</a></p>
+<div id="searchbox" style="">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18">
+      <input type="submit" value="Go">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://ie.u-ryukyu.ac.jp/~e085739/genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="https://ie.u-ryukyu.ac.jp/~e085739/c.syscall.html" title="UNIX プログラミング教室">next</a> |</li>
+        <li class="right">
+          <a href="https://ie.u-ryukyu.ac.jp/~e085739/c.makefile.html" title="Makefile の書き方">previous</a> |</li>
+        <li><a href="https://ie.u-ryukyu.ac.jp/~e085739/index.html">WTOPIA v1.0 documentation</a> »</li>
+          <li><a href="https://ie.u-ryukyu.ac.jp/~e085739/c.html">C</a> »</li>
+          <li><a href="https://ie.u-ryukyu.ac.jp/~e085739/c.makefile.html">Makefile の書き方</a> »</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        © Copyright 2010, WTOPIA.
+    </div>
+  
+</body></html>
