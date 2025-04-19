@@ -1,0 +1,32 @@
+MODULE main
+
+-- 変数宣言
+VAR
+    a   : { 0, 1, 2 };
+    b   : { 0, 1, 2 };
+    sw  : { on, off };
+
+-- 遷移系記述
+ASSIGN
+    init(a) := 0;
+    next(a) := case
+                    b = 1   : a; -- 変化なし
+                    TRUE    : ( a + 1 ) mod 3;
+                esac;
+
+    init(b) := 0;
+    next(b) := case
+                    a = b   : b;
+                    TRUE    : ( b + 1 ) mod 3;
+                esac;
+
+    init(sw) := off;
+    next(sw) := case
+                    a = 2 & b = 2   : on;
+                    a = 1 & b = 1   : off;
+                    TRUE            : sw;   -- 変化なし
+                esac;
+
+-- 検査項目
+LTLSPEC G(sw = off -> F(sw = on))
+LTLSPEC G(sw = on  -> F(sw = off))
