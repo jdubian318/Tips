@@ -2,7 +2,7 @@ TARGET = main
 # 検査したいLTL式の「否定」を記述したファイル
 FORMULA = formula
 OBJDIR = obj/
-OBJS = $(OBJDIR)*
+OBJS = $(OBJDIR) *.trail
 
 $(TARGET):
 	mkdir -p $(OBJDIR)
@@ -10,7 +10,7 @@ $(TARGET):
 	mv pan.* $(OBJDIR)
 	gcc -o $(OBJDIR)pan $(OBJDIR)pan.c
 	$(OBJDIR)pan -a
-	@if [ -f *.trail ];then mv *.trail $(OBJDIR); fi
+#	@if [ -f *.trail ];then mv *.trail $(OBJDIR); fi
 # -----------------------------------------------------------------------------
 # 上記と同じ。
 # never claim自体をファイルに書き出して確認したい場合は
