@@ -3,14 +3,24 @@
 # Python3 の場合、ソースが UTF-8 の場合は以下の記載は不要（むしろ非推奨）。
 # -*- coding: utf_8 -*-
 
-from typing import Callable
-import TkEasyGUI as eg
 import serial
 from serial.tools import list_ports
 from threading import Thread
 from queue import Queue
+from pathlib import Path
+import TkEasyGUI as eg
+
 from stringParser import StringParser
 from bytesParser import BytesParser
+
+
+listBoxItems = []
+
+file_path = "./SendData.txt"
+if Path(file_path).exists():
+    with open(file_path, "r") as f:
+        for l in f:
+            listBoxItems.append(l.rstrip('\n'))
 
 
 frame_setting_names_col = eg.Column(
@@ -88,8 +98,35 @@ frame_send = eg.Frame(
     [
         [
             eg.Text("SendData: "),
-            eg.Input("123", key="-txtSendData-", expand_x=True),
+            eg.Input("", key="-txtSendData-", expand_x=True),
             eg.Button("Send", key="-btnSend-", disabled=True),
+        ],
+        [
+            eg.Button("↓↓↓", key="-btnAdd-", expand_x=True),
+            eg.Button("↑↑↑", key="-btnChange-", expand_x=True),
+        ],
+        [
+            eg.Column(
+                [
+                    [
+                        eg.Listbox(values=listBoxItems, key="-lstSendData-", expand_x=True)
+                    ],
+                ],
+                expand_x=True
+            ),
+            eg.Column(
+                [
+                    [
+                        eg.Button("↑", key="-btnUp-")
+                    ],
+                    [
+                        eg.Button("↓", key="-btnDown-")
+                    ],
+                    [
+                        eg.Button("Delete", key="-btnDelete-", expand_x=True),
+                    ],
+                ],
+            ),
         ],
     ],
     expand_x=True,
@@ -180,7 +217,7 @@ def changeControls(connected: bool) -> None:
 
 isRecvRunning: bool = False
 
-with eg.Window("App", layout, resizable=True, size=(600, 600)) as window:
+with eg.Window("App", layout, resizable=True, size=(600, 800)) as window:
     ser: serial.Serial = None
     recv_thread: Thread = None
 
@@ -218,8 +255,8 @@ with eg.Window("App", layout, resizable=True, size=(600, 600)) as window:
                     changeControls(False)
 
             elif event == "-btnSend-":
-                txt = values['-txtSendData-']
-                parsed_bytes = StringParser.toBytes(txt)
+                new_item = values['-txtSendData-']
+                parsed_bytes = StringParser.toBytes(new_item)
                 appendCOMLog("[SEND]", parsed_bytes)
                 try:
                     ser.write(parsed_bytes)
@@ -227,6 +264,66 @@ with eg.Window("App", layout, resizable=True, size=(600, 600)) as window:
                     appendLog(f"[SEND] シリアルポートエラー：{e}")
                 except Exception as e:
                     appendLog(f"[SEND] その他エラー：{e}")
+
+            elif event == "-btnAdd-":
+                new_item = values['-txtSendData-']
+                if not new_item in listBoxItems:
+                    listBoxItems.append(new_item)
+                    window["-lstSendData-"].update(values=listBoxItems)
+
+                    with open(file_path, "w") as f:
+                        for item in listBoxItems:
+                            f.write(f"{item}\n")
+
+            elif event == "-btnChange-":
+                if len(values['-lstSendData-']) > 0:
+                    val = values['-lstSendData-'][0]
+                    window["-txtSendData-"].update(text=val)
+
+            elif event == "-btnDelete-":
+                if len(values['-lstSendData-']) > 0:
+                    val = values['-lstSendData-'][0]
+                    if val in listBoxItems:
+                        listBoxItems.remove(val)
+                        window["-lstSendData-"].update(values=listBoxItems)
+
+                    with open(file_path, "w") as f:
+                        for item in listBoxItems:
+                            f.write(f"{item}\n")
+
+            elif event == "-btnUp-":
+                if len(values['-lstSendData-']) > 0:
+                    val = values['-lstSendData-'][0]
+                    cur_idx = listBoxItems.index(val)
+                    if val in listBoxItems:
+                        listBoxItems.remove(val)
+                    new_idx = cur_idx - 1
+                    if new_idx < 0:
+                        new_idx = 0
+                    listBoxItems.insert(new_idx, val)
+                    window["-lstSendData-"].update(values=listBoxItems)
+                    window["-lstSendData-"].set_cursor_index(new_idx)
+
+                    with open(file_path, "w") as f:
+                        for item in listBoxItems:
+                            f.write(f"{item}\n")
+
+            elif event == "-btnDown-":
+                if len(values['-lstSendData-']) > 0:
+                    val = values['-lstSendData-'][0]
+                    cur_idx = listBoxItems.index(val)
+                    if val in listBoxItems:
+                        listBoxItems.remove(val)
+                    new_idx = cur_idx + 1
+                    if new_idx > len(listBoxItems):
+                        new_idx = len(listBoxItems)
+                    listBoxItems.insert(new_idx, val)
+                    window["-lstSendData-"].update(values=listBoxItems)
+                    window["-lstSendData-"].set_cursor_index(new_idx)
+
+                    with open(file_path, "w") as f:
+                        for item in listBoxItems:
+                            f.write(f"{item}\n")
 
             elif event == "-btnClear-":
                 window["-txtLog-"].update("")
