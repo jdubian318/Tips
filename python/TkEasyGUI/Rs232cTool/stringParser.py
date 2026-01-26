@@ -11,7 +11,8 @@ class State(IntEnum):
 
 class StringParser:
     @classmethod
-    def toBytes(cls, text:str) -> list[bytes]:
+    # def toBytes(cls, text:str) -> list[bytes]:
+    def toBytes(cls, text:str) -> bytearray:
         chars: list[tuple[str, bool]] = [] # (string, isHexString)
         hex_str:str = ""
 
@@ -37,19 +38,23 @@ class StringParser:
             "ACK": b"\x06",
             "NAK": b"\x15",
         }
-        bytes_list:list[bytes] = []
-        for str, isHexString in chars:
+        # bytes_list:list[bytes] = []
+        bytes_list:bytearray = bytearray()
+        for s, isHexString in chars:
             if isHexString:
-                if str in str2bytes:
-                    bytes_list.append(str2bytes[str])
+                if s in str2bytes:
+                    # bytes_list.append(str2bytes[str])
+                    bytes_list.extend(str2bytes[s])
                 else:
                     import re
-                    if re.match(r"^[0-9a-fA-F]{2}$", str):
-                        n = int(str, 16)
-                        bytes_list.append(n.to_bytes(1, 'big'))
+                    if re.match(r"^[0-9a-fA-F]{2}$", s):
+                        n = int(s, 16)
+                        # bytes_list.append(n.to_bytes(1, 'big'))
+                        bytes_list.extend(n.to_bytes(1, 'big'))
                     else:
-                        print(f"[ERROR] Cannot convert hex param '{str}'.")
+                        print(f"[ERROR] Cannot convert hex param '{s}'.")
             else:
-                bytes_list.append(str.encode("ascii"))
+                # bytes_list.append(str.encode("ascii"))
+                bytes_list.extend(s.encode("ascii"))
 
         return bytes_list

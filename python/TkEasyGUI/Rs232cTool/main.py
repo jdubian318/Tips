@@ -23,62 +23,88 @@ if Path(file_path).exists():
             listBoxItems.append(l.rstrip('\n'))
 
 
-frame_setting_names_col = eg.Column(
-    [
-        [ eg.Text("Port: ") ],
-        [ eg.Text("BaudRate:"),],
-        [ eg.Text("DataBits: "),],
-        [ eg.Text("Parity: "),],
-        [ eg.Text("StopBits: "),],
-    ],
-    key="col1",
-    expand_y=True,
-)
+frame_setting_Port = [
+    eg.Text("Port: "),
+    eg.Combo(
+        [],
+        key="-cmbPort-",
+        readonly=True
+    ),
+]
 
-frame_setting_items_col = eg.Column(
+frame_setting_BaudRate = eg.Column([
     [
-        [
-            eg.Combo(
-                [],
-                key="-cmbPort-",
-                readonly=True
-            ),
-        ],
-        [
-            eg.Combo(
-                ["9600", "19200", "38400", "115200"],
-                default_value="38400",
-                key="-cmbBaudRate-",
-                readonly=True
-            ),
-        ],
-        [
-            eg.Combo(
-                ["7 bit", "8 bit"],
-                default_value="8 bit",
-                key="-cmbDataBits-",
-                readonly=True
-            ),
-        ],
-        [
-            eg.Combo(
-                ["None", "Odd", "Even", "Mark", "Space"],
-                default_value="None",
-                key="-cmbParity-",
-                readonly=True
-            ),
-        ],
-        [
-            eg.Combo(
-                ["1 bit", "2 bit"],
-                default_value="1 bit",
-                key="-cmbStopBits-",
-                readonly=True
-            ),
-        ],
+        eg.Text("BaudRate:"),
+        eg.Combo(
+            ["9600", "19200", "38400", "115200"],
+            default_value="38400",
+            key="-cmbBaudRate-",
+            readonly=True,
+            size=(6,4)
+        )
     ],
-    key="col2",
-    expand_y=True,
+])
+
+frame_setting_DataBits = eg.Column([
+    [
+        eg.Text("DataBits: "),
+        eg.Combo(
+            ["7 bit", "8 bit"],
+            default_value="8 bit",
+            key="-cmbDataBits-",
+            readonly=True,
+            size=(5,2)
+        ),
+    ],
+])
+
+frame_setting_Parity = eg.Column([
+    [
+        eg.Text("Parity: "),
+        eg.Combo(
+            ["None", "Odd", "Even", "Mark", "Space"],
+            default_value="None",
+            key="-cmbParity-",
+            readonly=True,
+            size=(5,5)
+        ),
+    ],
+])
+
+frame_setting_StopBits = eg.Column([
+    [
+        eg.Text("StopBits: "),
+        eg.Combo(
+            ["1 bit", "2 bit"],
+            default_value="1 bit",
+            key="-cmbStopBits-",
+            readonly=True,
+            size=(5,2)
+        ),
+    ],
+])
+
+frame_setting_Delimiter = eg.Frame(
+    "Delimiter",
+    [[
+        eg.Text("Send: "),
+        eg.Combo(
+            ["CR", "LF", "CRLF"],
+            default_value="CR",
+            key="-cmbSendDelimiter-",
+            readonly=True,
+            size=(4, 3)
+        ),
+        eg.Text("Receive: "),
+        eg.Combo(
+            ["CR", "LF", "CRLF"],
+            default_value="CR",
+            key="-cmbRecvDelimiter-",
+            readonly=True,
+            size=(4, 3)
+        )
+    ]],
+    expand_x=True
 )
 
 frame_setting_button = [
@@ -88,7 +114,9 @@ frame_setting_button = [
 frame_setting = eg.Frame(
     "Settings",
     [
-        [frame_setting_names_col, frame_setting_items_col],
+        frame_setting_Port,
+        [frame_setting_BaudRate, frame_setting_DataBits, frame_setting_Parity, frame_setting_StopBits],
+        [frame_setting_Delimiter],
         frame_setting_button,
     ],
 )
@@ -109,7 +137,7 @@ frame_send = eg.Frame(
             eg.Column(
                 [
                     [
-                        eg.Listbox(values=listBoxItems, key="-lstSendData-", expand_x=True)
+                        eg.Listbox(values=listBoxItems, key="-lstSendData-", expand_x=True, size=(5,5))
                     ],
                 ],
                 expand_x=True
@@ -132,10 +160,22 @@ frame_send = eg.Frame(
     expand_x=True,
 )
 
+frame_telegram = eg.Frame(
+    "Telegram",
+    [
+        [ eg.Button("Clear", key="-btnTelegramClear-") ],
+        [
+            eg.Multiline("", key="-txtAsciiTelegram-", readonly=True, expand_x=True, expand_y=True),
+            eg.Multiline("", key="-txtHexTelegram-", readonly=True, expand_x=True, expand_y=True),
+        ],
+    ],
+    expand_x=True, expand_y=True,
+)
+
 frame_log = eg.Frame(
     "Log",
     [
-        [ eg.Button("Clear", key="-btnClear-") ],
+        [ eg.Button("Clear", key="-btnLogClear-") ],
         [ eg.Multiline("", key="-txtLog-", readonly=True, expand_x=True, expand_y=True) ],
     ],
     expand_x=True, expand_y=True,
@@ -144,6 +184,7 @@ frame_log = eg.Frame(
 layout = [
     [ frame_setting ],
     [ frame_send ],
+    [ frame_telegram ],
     [ frame_log ],
 ]
 
@@ -169,20 +210,25 @@ def getComParams(values) -> tuple[str, int, str, int]:
 
 
 logQue: Queue = Queue()
+telLogQue: Queue = Queue()
 def appendLog(txt: str) -> None:
-    # print(f"{txt}")
     logQue.put(txt)
 
+def appendTelegramLog(tpl: tuple[str,str]) -> None:
+    telLogQue.put(tpl)
+
 def appendCOMLog(type:str, dt: bytes) -> None:
-    parsed_text = BytesParser.toString(dt, isHex=True)
-    appendLog(f"{type} {parsed_text}")
+    # TODO デリミタで分割してログ出力する処理を追加する
+    parsed_text_hex = BytesParser.toString(dt, isHex=True)
+    parsed_text_ascii = BytesParser.toString(dt, isHex=False)
+    appendTelegramLog((f"{type} {parsed_text_ascii}", f"{type} {parsed_text_hex}"))
 
 
 def serialReceiveThread(ser: serial.Serial) -> None:
     import time
     while isRecvRunning:
         try:
-            if ser.in_waiting() <= 0:
+            if ser.in_waiting <= 0:
                 time.sleep(0.01)
                 continue
             appendCOMLog("[RECV]", ser.readall())
@@ -192,6 +238,8 @@ def serialReceiveThread(ser: serial.Serial) -> None:
         except Exception as e:
             time.sleep(0.1)
             appendLog(f"[RECV] その他エラー：{e}")
+            # time.sleep(1)
+            # appendCOMLog("[RECV]", StringParser.toBytes("abc"))
 
 
 def changeControls(connected: bool) -> None:
@@ -217,7 +265,7 @@ def changeControls(connected: bool) -> None:
 
 isRecvRunning: bool = False
 
-with eg.Window("App", layout, resizable=True, size=(600, 800)) as window:
+with eg.Window("App", layout, resizable=True, size=(800, 950)) as window:
     ser: serial.Serial = None
     recv_thread: Thread = None
 
@@ -245,6 +293,15 @@ with eg.Window("App", layout, resizable=True, size=(600, 800)) as window:
                         appendLog(f"[OPEN] シリアルポートエラー：{e}")
                     except Exception as e:
                         appendLog(f"[OPEN] その他エラー：{e}")
+                    #---------------------------------------------------------------------------------
+                    finally:
+                        pass
+                        # isRecvRunning = True
+                        # recv_thread = Thread(target=serialReceiveThread, args=(ser,))
+                        # recv_thread.start()
+                        # appendLog(f"[OPEN] Dummy Success.")
+                        # changeControls(True)
+                    #---------------------------------------------------------------------------------
                 else:
                     isRecvRunning = False
                     if recv_thread is not None:
@@ -325,7 +382,7 @@ with eg.Window("App", layout, resizable=True, size=(600, 800)) as window:
                         for item in listBoxItems:
                             f.write(f"{item}\n")
 
-            elif event == "-btnClear-":
+            elif event == "-btnLogClear-":
                 window["-txtLog-"].update("")
 
             elif event == "-timeout-":
@@ -334,6 +391,14 @@ with eg.Window("App", layout, resizable=True, size=(600, 800)) as window:
                     window["-txtLog-"].update(readonly=False)
                     window["-txtLog-"].print(text=f"{log_txt}", autoscroll=True)
                     window["-txtLog-"].update(readonly=True)
+                if not telLogQue.empty():
+                    log_txt = telLogQue.get()
+                    window["-txtAsciiTelegram-"].update(readonly=False)
+                    window["-txtAsciiTelegram-"].print(text=f"{log_txt[0]}", autoscroll=True)
+                    window["-txtAsciiTelegram-"].update(readonly=True)
+                    window["-txtHexTelegram-"].update(readonly=False)
+                    window["-txtHexTelegram-"].print(text=f"{log_txt[1]}", autoscroll=True)
+                    window["-txtHexTelegram-"].update(readonly=True)
 
             elif event == eg.WINDOW_CLOSED:
                 isRecvRunning = False
