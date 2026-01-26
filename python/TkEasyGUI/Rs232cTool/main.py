@@ -231,7 +231,8 @@ def serialReceiveThread(ser: serial.Serial) -> None:
             if ser.in_waiting <= 0:
                 time.sleep(0.01)
                 continue
-            appendCOMLog("[RECV]", ser.readall())
+            # appendCOMLog("[RECV]", ser.readall()) # 通信が終了（タイムアウト）するまで待機してしまうので遅い！
+            appendCOMLog("[RECV]", ser.read(ser.in_waiting)) # バッファに溜まっているデータ量だけを一度に読み出す
         except serial.SerialException as e:
             time.sleep(0.1)
             appendLog(f"[RECV] シリアルポートエラー：{e}")
@@ -262,6 +263,14 @@ def changeControls(connected: bool) -> None:
         window["-btnConnect-"].update(text="Connect")
 
 
+def disconnect(ser: serial.Serial, recv_thread: Thread) -> None:
+    if recv_thread is not None:
+        recv_thread.join()
+    if ser is not None:
+        ser.close()
+    appendLog(f"[CLOSE] Success.")
+    changeControls(False)
+
 
 isRecvRunning: bool = False
 
@@ -274,7 +283,7 @@ with eg.Window("App", layout, resizable=True, size=(800, 950)) as window:
     window["-cmbPort-"].update(values=devices)
 
     while window.is_alive():
-        for event, values in window.event_iter(timeout=100, timeout_key="-timeout-"):
+        for event, values in window.event_iter(timeout=10, timeout_key="-timeout-"):
             if event == "-btnConnect-":
                 if window["-btnConnect-"].text == "Connect":
                     port, baudrate, data_bits, parity, stop_bits = getComParams(values)
@@ -304,12 +313,7 @@ with eg.Window("App", layout, resizable=True, size=(800, 950)) as window:
                     #---------------------------------------------------------------------------------
                 else:
                     isRecvRunning = False
-                    if recv_thread is not None:
-                        recv_thread.join()
-                    if ser is not None:
-                        ser.close()
-                    appendLog(f"[CLOSE] Success.")
-                    changeControls(False)
+                    disconnect(ser, recv_thread)
 
             elif event == "-btnSend-":
                 new_item = values['-txtSendData-']
@@ -387,23 +391,31 @@ with eg.Window("App", layout, resizable=True, size=(800, 950)) as window:
 
             elif event == "-timeout-":
                 if not logQue.empty():
-                    log_txt = logQue.get()
                     window["-txtLog-"].update(readonly=False)
-                    window["-txtLog-"].print(text=f"{log_txt}", autoscroll=True)
+                    while not logQue.empty():
+                        log_txt = logQue.get()
+                        window["-txtLog-"].print(text=f"{log_txt}", autoscroll=True)
                     window["-txtLog-"].update(readonly=True)
                 if not telLogQue.empty():
-                    log_txt = telLogQue.get()
                     window["-txtAsciiTelegram-"].update(readonly=False)
-                    window["-txtAsciiTelegram-"].print(text=f"{log_txt[0]}", autoscroll=True)
-                    window["-txtAsciiTelegram-"].update(readonly=True)
                     window["-txtHexTelegram-"].update(readonly=False)
-                    window["-txtHexTelegram-"].print(text=f"{log_txt[1]}", autoscroll=True)
+                    while not telLogQue.empty():
+                        log_txt = telLogQue.get()
+                        window["-txtAsciiTelegram-"].print(text=f"{log_txt[0]}", autoscroll=True)
+                        window["-txtHexTelegram-"].print(text=f"{log_txt[1]}", autoscroll=True)
+                    window["-txtAsciiTelegram-"].update(readonly=True)
                     window["-txtHexTelegram-"].update(readonly=True)
-
             elif event == eg.WINDOW_CLOSED:
-                isRecvRunning = False
-                if recv_thread is not None:
-                    recv_thread.join()
-                if ser is not None:
-                    ser.close()
+                # Ubuntu環境：ここにくる。
+                # Windows11環境：ここに来ない。。なぜかは不明。そのうち調査？
+                if isRecvRunning:
+                    eg.popup("切断します")
                 break
+                
+
+    # 切断ボタン押下せずにウィンドウの閉じるボタンを押下した時に備えて
+    # 最後に切断処理を行う
+    isRecvRunning = False
+    disconnect(ser, recv_thread)
+
+    window.close()
