@@ -23,11 +23,19 @@ class LogDatabase:
             return False
 
     def clear_and_import(self, lines):
-        """データを全削除して一括挿入（高速化のためトランザクション使用）"""
-        self.cursor.execute("DELETE FROM logs")
-        self.conn.execute("BEGIN TRANSACTION")
-        self.cursor.executemany("INSERT INTO logs (content) VALUES (?)", [(line,) for line in lines])
-        self.conn.commit()
+            """データを全削除して一括挿入（高速化のためトランザクション使用）"""
+            # autocommitモードでない場合、executeを実行した時点で自動的にトランザクションが始まります。
+            # 明示的な "BEGIN TRANSACTION" を削除し、コンテキストマネージャを使うのがPython流で安全です。
+            try:
+                with self.conn:  # これだけで自動的に BEGIN / COMMIT / ROLLBACK を管理してくれます
+                    self.cursor.execute("DELETE FROM logs")
+                    self.cursor.executemany(
+                        "INSERT INTO logs (content) VALUES (?)", 
+                        [(line,) for line in lines]
+                    )
+            except sqlite3.Error as e:
+                print(f"Database error: {e}")
+                raise
 
     def query_logs(self, patterns, limit, offset):
         """検索条件に基づいたログの取得"""
