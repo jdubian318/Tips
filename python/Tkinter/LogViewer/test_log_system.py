@@ -1,26 +1,57 @@
 import pytest
+import os
 from database import LogDatabase
 from services import LogService
 
 @pytest.fixture
-def mock_service():
-    """テスト用のDBとサービスをセットアップ"""
+def service():
+    """テスト用の基本セットアップ。メモリDBを使用。"""
     db = LogDatabase(":memory:")
-    db.clear_and_import(["Error: Timeout", "Info: Success", "Debug: Logic", "Error: Crash"])
-    return LogService(db, page_limit=2) # テスト用に表示制限を2に
+    # テストデータをインポート
+    db.clear_and_import([
+        "ERROR 2026-01-01 DB connection failed",
+        "INFO  2026-01-01 System start",
+        "ERROR 2026-01-02 Authentication failed",
+        "DEBUG 2026-01-02 Trace data"
+    ])
+    return LogService(db, page_limit=2)
 
-def test_filtering(mock_service):
-    """特定のキーワードで正しくフィルタリングされるか"""
-    patterns = ["Error"]
-    state = mock_service.get_display_state(patterns, 0)
-    assert len(state["logs"]) == 2
-    assert "Error: Timeout" in state["logs"]
-    assert "Error: Crash" in state["logs"]
+def test_or_search(service):
+    """OR検索が正しく機能するか"""
+    patterns = ["DB", "Auth"]
+    # DB または Auth が含まれる2件がヒットするはず
+    state = service.get_display_data(patterns, 0, mode="OR")
+    assert state["total"] == 2
+    assert any("DB connection" in log for log in state["logs"])
 
-def test_pagination_clamping(mock_service):
-    """オフセットが範囲外の時に正しく丸められるか"""
-    patterns = [] # 全件表示
-    # 4件あるログに対してオフセットを100にする
-    state = mock_service.get_display_state(patterns, 100)
-    # 最大オフセット (4 - 2 = 2) に丸められるはず
+def test_and_search(service):
+    """AND検索が正しく機能するか"""
+    patterns = ["ERROR", "failed"]
+    # ERROR かつ failed が含まれるのは2件
+    state = service.get_display_data(patterns, 0, mode="AND")
+    assert state["total"] == 2
+    
+    # どちらか一方だけだとヒットしない
+    patterns_no_hit = ["INFO", "failed"]
+    state_no_hit = service.get_display_data(patterns_no_hit, 0, mode="AND")
+    assert state_no_hit["total"] == 0
+
+def test_export_functionality(service, tmp_path):
+    """エクスポートがファイルを正しく生成するか"""
+    test_file = tmp_path / "export_test.txt"
+    patterns = ["ERROR"]
+    
+    success, err = service.export_data(str(test_file), patterns)
+    assert success is True
+    
+    with open(test_file, 'r') as f:
+        lines = f.readlines()
+        assert len(lines) == 2
+        assert "DB connection failed" in lines[0]
+
+def test_clamping_logic(service):
+    """大量のオフセットを指定しても末尾で止まるか"""
+    state = service.get_display_data([], 9999) # 全件4件、ページ制限2
+    # 最大オフセットは (4 - 2 = 2) になるはず
     assert state["offset"] == 2
+    assert len(state["logs"]) == 2

@@ -22,18 +22,11 @@ $ pipenv install tk
 
 
 
-# 出だし
-
-```python
-import TkEasyGUI as eg
-```
-
-
 # 実行
 
 ```bash
 $ pipenv shell
-(simpleSample) $ python main.py
+(LogViewer) $ python main.py
 
 ```
 
@@ -41,7 +34,7 @@ $ pipenv shell
 # テスト実行
 
 ```bash
-$ pytest test_log_system.py
+(LogViewer) $ pytest test_log_system.py
 ```
 
 
