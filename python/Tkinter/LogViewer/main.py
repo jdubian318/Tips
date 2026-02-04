@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk, colorchooser
+import re
 from database import LogDatabase
 from services import LogService
 
@@ -17,9 +18,10 @@ class LogViewerApp:
         self._init_ui()
 
     def _init_ui(self):
-        self.root.title("Professional Log Viewer (ReadOnly)")
-        self.root.geometry("1200x900")
+        self.root.title("Professional Log Viewer (Case Sensitivity Support)")
+        self.root.geometry("1300x900")
 
+        # --- Toolbar ---
         toolbar = tk.Frame(self.root, padx=10, pady=5)
         toolbar.pack(fill=tk.X)
         tk.Button(toolbar, text="Import File", command=self.handle_import).pack(side=tk.LEFT, padx=2)
@@ -33,6 +35,7 @@ class LogViewerApp:
         ttk.Radiobutton(toolbar, text="OR", variable=self.search_mode, value="OR", command=self.refresh_view).pack(side=tk.LEFT)
         ttk.Radiobutton(toolbar, text="AND", variable=self.search_mode, value="AND", command=self.refresh_view).pack(side=tk.LEFT)
 
+        # --- Filter Area ---
         self.filter_container = tk.LabelFrame(self.root, text="Search Filters", padx=10, pady=5)
         self.filter_container.pack(fill=tk.X, padx=10, pady=5)
         
@@ -43,6 +46,7 @@ class LogViewerApp:
         self.rows_inner_frame = tk.Frame(self.filter_container)
         self.rows_inner_frame.pack(fill=tk.X)
 
+        # --- Log View Area ---
         view_frame = tk.Frame(self.root)
         view_frame.pack(expand=True, fill=tk.BOTH, padx=10, pady=5)
         
@@ -57,28 +61,24 @@ class LogViewerApp:
         
         self.v_scroll.config(command=self.text_area.yview)
         self.h_scroll.config(command=self.text_area.xview)
-
-        # マウスホイールイベントをバインド
         self.text_area.bind("<MouseWheel>", self.handle_mousewheel)
         
         self.add_filter_row()
 
-    def toggle_h_scroll(self):
-        if self.h_scroll_var.get():
-            self.text_area.config(wrap=tk.NONE)
-            self.h_scroll.pack(side=tk.BOTTOM, fill=tk.X, before=self.text_area)
-        else:
-            self.text_area.config(wrap=tk.WORD)
-            self.h_scroll.pack_forget()
-        self.refresh_view()
-
     def add_filter_row(self):
         row = tk.Frame(self.rows_inner_frame)
         row.pack(fill=tk.X, pady=2)
+        
+        # Keyword Entry
         var = tk.StringVar()
         var.trace_add("write", lambda *a: self.refresh_view(True))
         tk.Entry(row, textvariable=var, width=40).pack(side=tk.LEFT, padx=5)
         
+        # Case Sensitivity Toggle
+        case_var = tk.BooleanVar(value=False)
+        tk.Checkbutton(row, text="Aa", variable=case_var, command=lambda: self.refresh_view(True)).pack(side=tk.LEFT, padx=5)
+        
+        # Color Palette
         color_name_var = tk.StringVar(value="Yellow")
         current_hex = tk.StringVar(value=PRESET_COLORS["Yellow"])
         color_combo = ttk.Combobox(row, textvariable=color_name_var, values=list(PRESET_COLORS.keys())[:-1], width=10, state="readonly")
@@ -90,59 +90,76 @@ class LogViewerApp:
         color_combo.bind("<<ComboboxSelected>>", lambda e: self.on_preset_change(color_name_var, current_hex, picker_btn))
         
         tk.Button(row, text="✕", command=lambda: self.remove_filter(row, row_data)).pack(side=tk.LEFT, padx=5)
-        row_data = {"var": var, "current_hex": current_hex, "frame": row}
+        
+        row_data = {"var": var, "case_sensitive": case_var, "current_hex": current_hex, "frame": row}
         self.filter_rows.append(row_data)
 
-    def on_preset_change(self, name_var, hex_var, btn):
-        new_hex = PRESET_COLORS[name_var.get()]
-        hex_var.set(new_hex); btn.config(bg=new_hex); self.refresh_view()
-
-    def pick_custom_color(self, hex_var, name_var, btn):
-        color = colorchooser.askcolor(initialcolor=hex_var.get())[1]
-        if color: hex_var.set(color); name_var.set("Custom"); btn.config(bg=color); self.refresh_view()
-
     def refresh_view(self, reset_scroll=False):
-        """フィルタリング後のスクロール不具合を修正"""
-        patterns = [r["var"].get() for r in self.filter_rows]
-        # offsetをリセットする場合は0、そうでない場合は現在の値を維持
-        if reset_scroll:
-            self.current_offset = 0
+        # フィルター毎の設定（パターンとCaseフラグ）をリスト化
+        patterns_data = []
+        for r in self.filter_rows:
+            p = r["var"].get()
+            if p:
+                # SQLite REGEXP用に、大文字小文字を区別しない場合は (?i) を先頭に付与
+                # 判別する場合はそのまま渡す
+                prefix = "" if r["case_sensitive"].get() else "(?i)"
+                patterns_data.append(prefix + p)
 
-        state = self.service.get_display_data(patterns, self.current_offset, self.search_mode.get())
+        if reset_scroll: self.current_offset = 0
+
+        # DBクエリを実行
+        state = self.service.get_display_data(patterns_data, self.current_offset, self.search_mode.get())
         
         self.text_area.config(state=tk.NORMAL)
         self.text_area.delete("1.0", tk.END)
         self.text_area.insert("1.0", "\n".join(state["logs"]))
         
+        # ハイライトの適用
         for r in self.filter_rows:
-            if r["var"].get(): 
-                self._apply_highlight(r["var"].get(), r["current_hex"].get())
+            p = r["var"].get()
+            if p:
+                self._apply_highlight(p, r["current_hex"].get(), r["case_sensitive"].get())
         
         self.text_area.config(state=tk.DISABLED)
-        
-        # 重要：ウィジェットに表示更新を完了させ、スクロール領域を正しく認識させる
         self.root.update_idletasks()
 
-    def _apply_highlight(self, pattern, color):
-        tag_id = f"tag_{pattern}"
+    def _apply_highlight(self, pattern, color, is_case_sensitive):
+        tag_id = f"tag_{pattern}_{is_case_sensitive}"
         self.text_area.tag_config(tag_id, foreground=color)
-        idx = "1.0"
-        while True:
-            idx = self.text_area.search(pattern, idx, tk.END, regexp=True)
-            if not idx: break
-            line_end = f"{idx.split('.')[0]}.end"
-            self.text_area.tag_add(tag_id, idx, line_end)
-            idx = line_end
+        
+        try:
+            # ハイライト時も大文字小文字の判別設定を反映
+            flags = 0 if is_case_sensitive else re.IGNORECASE
+            regex = re.compile(pattern, flags)
+        except Exception:
+            return
 
-    def toggle_tail(self):
-        if self.tail_var.get():
-            if not self.service.current_file:
-                messagebox.showwarning("Warning", "Please import a file first.")
-                self.tail_var.set(False)
-                return
-            self.service.start_tail_worker(lambda: self.root.after(0, self.refresh_view))
+        full_text = self.text_area.get("1.0", tk.END)
+        for match in regex.finditer(full_text):
+            start_idx = self._get_tk_index(full_text, match.start())
+            end_idx = self._get_tk_index(full_text, match.end())
+            self.text_area.tag_add(tag_id, start_idx, end_idx)
+
+    def _get_tk_index(self, text, offset):
+        before_text = text[:offset]
+        lines = before_text.split('\n')
+        return f"{len(lines)}.{len(lines[-1])}"
+
+    # --- 他の既存メソッド (前回の修正を維持) ---
+    def on_preset_change(self, name_var, hex_var, btn):
+        new_hex = PRESET_COLORS[name_var.get()]; hex_var.set(new_hex); btn.config(bg=new_hex); self.refresh_view()
+
+    def pick_custom_color(self, hex_var, name_var, btn):
+        color = colorchooser.askcolor(initialcolor=hex_var.get())[1]
+        if color: hex_var.set(color); name_var.set("Custom"); btn.config(bg=color); self.refresh_view()
+
+    def toggle_h_scroll(self):
+        if self.h_scroll_var.get():
+            self.text_area.config(wrap=tk.NONE)
+            self.h_scroll.pack(side=tk.BOTTOM, fill=tk.X, before=self.text_area)
         else:
-            self.service.stop_tail()
+            self.text_area.config(wrap=tk.WORD); self.h_scroll.pack_forget()
+        self.refresh_view()
 
     def handle_import(self):
         path = filedialog.askopenfilename()
@@ -150,11 +167,18 @@ class LogViewerApp:
 
     def handle_export(self):
         path = filedialog.asksaveasfilename(defaultextension=".txt")
-        if path: self.service.export_data(path, [r["var"].get() for r in self.filter_rows], self.search_mode.get())
+        if path:
+            patterns_data = [("" if r["case_sensitive"].get() else "(?i)") + r["var"].get() for r in self.filter_rows if r["var"].get()]
+            self.service.export_data(path, patterns_data, self.search_mode.get())
+
+    def toggle_tail(self):
+        if self.tail_var.get():
+            if not self.service.current_file:
+                messagebox.showwarning("Warning", "Please import a file first."); self.tail_var.set(False); return
+            self.service.start_tail_worker(lambda: self.root.after(0, self.refresh_view))
+        else: self.service.stop_tail()
 
     def handle_mousewheel(self, event):
-        """OS標準のスクロール挙動を直接Textウィジェットへ渡す"""
-        # deltaが正なら上に、負なら下にスクロール
         direction = -1 if event.delta > 0 else 1
         self.text_area.yview_scroll(direction, "units")
         return "break"
