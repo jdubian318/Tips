@@ -31,7 +31,6 @@ class LogService:
         threading.Thread(target=task, daemon=True).start()
 
     def start_tail_worker(self, on_update_callback):
-        """Tail監視スレッドの開始"""
         self.tail_enabled = True
         def watch():
             while self.tail_enabled:
@@ -39,7 +38,7 @@ class LogService:
                     new_size = os.path.getsize(self.current_file)
                     if new_size > self.last_filesize:
                         self._read_diff(new_size, on_update_callback)
-                time.sleep(1) # 1秒ごとに監視
+                time.sleep(1)
         threading.Thread(target=watch, daemon=True).start()
 
     def stop_tail(self):
@@ -52,7 +51,7 @@ class LogService:
                 new_lines = [line.strip() for line in f if line.strip()]
                 self.db.append_logs(new_lines)
                 self.last_filesize = new_size
-                callback() # UI更新を通知
+                callback()
         except Exception as e:
             print(f"Tail error: {e}")
 

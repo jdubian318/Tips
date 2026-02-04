@@ -19,20 +19,17 @@ class LogDatabase:
             return False
 
     def clear_and_import(self, lines):
-        """全入れ替え（初回インポート用）"""
         with self.conn:
             self.cursor.execute("DELETE FROM logs")
             self.cursor.executemany("INSERT INTO logs (content) VALUES (?)", [(line,) for line in lines])
 
     def append_logs(self, lines):
-        """追記（Tail用）"""
         if not lines: return
         with self.conn:
             self.cursor.executemany("INSERT INTO logs (content) VALUES (?)", [(line,) for line in lines])
 
     def query_logs(self, patterns, limit, offset, mode="OR"):
         where_sql, params = self._build_where(patterns, mode)
-        # IDの降順（新しい順）で見たい場合は ORDER BY id DESC を追加
         query = f"SELECT content FROM logs {where_sql} LIMIT ? OFFSET ?"
         self.cursor.execute(query, params + [limit, offset])
         return [row[0] for row in self.cursor.fetchall()]
