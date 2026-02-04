@@ -1,0 +1,112 @@
+# 準備
+
+```bash
+$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 22.04.5 LTS
+Release:        22.04
+Codename:       jammy
+
+$ python3 --version
+Python 3.13.5
+
+$ apt install python3-pip
+$ apt install python3-tk
+$ pipenv --python 3.10
+$ pipenv install tk
+```
+
+そのままインストールしたらうまく行かなかったので、
+仮想環境にPython3.10を構築して実行。
+
+
+
+# 出だし
+
+```python
+import TkEasyGUI as eg
+```
+
+
+# 実行
+
+```bash
+$ pipenv shell
+(simpleSample) $ python main.py
+
+```
+
+
+# テスト実行
+
+```bash
+$ pytest test_log_system.py
+```
+
+
+## OKパターン
+
+```
+```
+
+
+
+## NGパターン
+
+```bash
+(LogViewer) ken@ken-ThinkPad-X1-Carbon-6th:~/VBoxShare/code/Tips/python/Tkinter/LogViewer$ pytest test_log_system.py 
+================================================================================== test session starts ===================================================================================
+platform linux -- Python 3.10.12, pytest-9.0.2, pluggy-1.6.0
+rootdir: /home/ken/VBoxShare/code/Tips/python/Tkinter/LogViewer
+collected 2 items                                                                                                                                                                        
+
+test_log_system.py EE                                                                                                                                                              [100%]
+
+========================================================================================= ERRORS =========================================================================================
+____________________________________________________________________________ ERROR at setup of test_filtering ____________________________________________________________________________
+
+    @pytest.fixture
+    def mock_service():
+        """テスト用のDBとサービスをセットアップ"""
+        db = LogDatabase(":memory:")
+>       db.clear_and_import(["Error: Timeout", "Info: Success", "Debug: Logic", "Error: Crash"])
+
+test_log_system.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <database.LogDatabase object at 0x790949a9a3b0>, lines = ['Error: Timeout', 'Info: Success', 'Debug: Logic', 'Error: Crash']
+
+    def clear_and_import(self, lines):
+        """データを全削除して一括挿入（高速化のためトランザクション使用）"""
+        self.cursor.execute("DELETE FROM logs")
+>       self.conn.execute("BEGIN TRANSACTION")
+E       sqlite3.OperationalError: cannot start a transaction within a transaction
+
+database.py:28: OperationalError
+_______________________________________________________________________ ERROR at setup of test_pagination_clamping _______________________________________________________________________
+
+    @pytest.fixture
+    def mock_service():
+        """テスト用のDBとサービスをセットアップ"""
+        db = LogDatabase(":memory:")
+>       db.clear_and_import(["Error: Timeout", "Info: Success", "Debug: Logic", "Error: Crash"])
+
+test_log_system.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <database.LogDatabase object at 0x790949a9aa40>, lines = ['Error: Timeout', 'Info: Success', 'Debug: Logic', 'Error: Crash']
+
+    def clear_and_import(self, lines):
+        """データを全削除して一括挿入（高速化のためトランザクション使用）"""
+        self.cursor.execute("DELETE FROM logs")
+>       self.conn.execute("BEGIN TRANSACTION")
+E       sqlite3.OperationalError: cannot start a transaction within a transaction
+
+database.py:28: OperationalError
+================================================================================ short test summary info =================================================================================
+ERROR test_log_system.py::test_filtering - sqlite3.OperationalError: cannot start a transaction within a transaction
+ERROR test_log_system.py::test_pagination_clamping - sqlite3.OperationalError: cannot start a transaction within a transaction
+=================================================================================== 2 errors in 0.08s ====================================================================================
+(LogViewer) ken@ken-ThinkPad-X1-Carbon-6th:~/VBoxShare/code/Tips/python/Tkinter/LogViewer$ 
+```
