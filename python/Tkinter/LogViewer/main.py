@@ -1,13 +1,13 @@
 import tkinter as tk
-from tkinter import filedialog, messagebox, ttk, colorchooser
+from tkinter import filedialog, messagebox, ttk, colorchooser, font
 import re
 from database import LogDatabase
 from services import LogService
 
-# ハイライト用のプリセット
+# プリセット定義
 PRESET_HIGHLIGHTS = {"Yellow": "#FFFF00", "Red": "#FF4444", "Green": "#00FF00", "Cyan": "#00FFFF", "White": "#FFFFFF", "Custom": ""}
-# ログ背景用のプリセット
 PRESET_BG_COLORS = {"Dark Gray": "#1e1e1e", "Midnight": "#000033", "Deep Green": "#002200", "Paper": "#f5f5f5", "Classic Blue": "#000080"}
+FAMILIES = ["Consolas", "MS Gothic", "Courier New", "Lucida Console", "Arial"]
 
 class LogViewerApp:
     def __init__(self, root, service):
@@ -18,11 +18,16 @@ class LogViewerApp:
         self.search_mode = tk.StringVar(value="OR")
         self.tail_var = tk.BooleanVar(value=False)
         self.h_scroll_var = tk.BooleanVar(value=True)
+        
+        # フォント設定の初期値
+        self.current_font_family = tk.StringVar(value="Consolas")
+        self.current_font_size = tk.IntVar(value=10)
+        
         self._init_ui()
 
     def _init_ui(self):
-        self.root.title("Professional Log Viewer (Log Area BG Control)")
-        self.root.geometry("1400x900")
+        self.root.title("Professional Log Viewer (Font & Color Customizer)")
+        self.root.geometry("1500x900")
 
         # --- Toolbar ---
         toolbar = tk.Frame(self.root, padx=10, pady=5)
@@ -31,22 +36,27 @@ class LogViewerApp:
         tk.Button(toolbar, text="Import File", command=self.handle_import).pack(side=tk.LEFT, padx=2)
         tk.Button(toolbar, text="Export Result", command=self.handle_export).pack(side=tk.LEFT, padx=2)
         
-        tk.Frame(toolbar, width=15).pack(side=tk.LEFT)
-        tk.Checkbutton(toolbar, text="Tail -f", variable=self.tail_var, command=self.toggle_tail).pack(side=tk.LEFT, padx=5)
-        tk.Checkbutton(toolbar, text="H-Scroll", variable=self.h_scroll_var, command=self.toggle_h_scroll).pack(side=tk.LEFT, padx=5)
+        # フォント設定
+        tk.Label(toolbar, text=" | Font:").pack(side=tk.LEFT, padx=2)
+        font_combo = ttk.Combobox(toolbar, textvariable=self.current_font_family, values=FAMILIES, width=12, state="readonly")
+        font_combo.pack(side=tk.LEFT, padx=2)
+        font_combo.bind("<<ComboboxSelected>>", self.update_font)
         
-        # --- ログ表示部分の背景色設定 (追加) ---
-        tk.Label(toolbar, text=" | Log BG:").pack(side=tk.LEFT, padx=2)
+        size_spin = tk.Spinbox(toolbar, from_=6, to=72, textvariable=self.current_font_size, width=3, command=self.update_font)
+        size_spin.pack(side=tk.LEFT, padx=2)
+        size_spin.bind("<Return>", lambda e: self.update_font())
+
+        # 背景色設定
+        tk.Label(toolbar, text=" | BG:").pack(side=tk.LEFT, padx=2)
         self.bg_combo_var = tk.StringVar(value="Dark Gray")
-        bg_combo = ttk.Combobox(toolbar, textvariable=self.bg_combo_var, values=list(PRESET_BG_COLORS.keys()), width=12, state="readonly")
+        bg_combo = ttk.Combobox(toolbar, textvariable=self.bg_combo_var, values=list(PRESET_BG_COLORS.keys()), width=10, state="readonly")
         bg_combo.pack(side=tk.LEFT, padx=2)
         bg_combo.bind("<<ComboboxSelected>>", self.handle_bg_preset)
-        
-        tk.Button(toolbar, text="RGB 🎨", command=self.pick_log_bg_rgb, font=("", 8)).pack(side=tk.LEFT, padx=2)
+        tk.Button(toolbar, text="🎨", command=self.pick_log_bg_rgb, font=("", 8)).pack(side=tk.LEFT, padx=2)
 
-        tk.Label(toolbar, text=" | Mode:").pack(side=tk.LEFT)
-        ttk.Radiobutton(toolbar, text="OR", variable=self.search_mode, value="OR", command=self.refresh_view).pack(side=tk.LEFT)
-        ttk.Radiobutton(toolbar, text="AND", variable=self.search_mode, value="AND", command=self.refresh_view).pack(side=tk.LEFT)
+        tk.Frame(toolbar, width=10).pack(side=tk.LEFT)
+        tk.Checkbutton(toolbar, text="Tail -f", variable=self.tail_var, command=self.toggle_tail).pack(side=tk.LEFT)
+        tk.Checkbutton(toolbar, text="H-Scroll", variable=self.h_scroll_var, command=self.toggle_h_scroll).pack(side=tk.LEFT)
 
         # --- Filter Area ---
         self.filter_container = tk.LabelFrame(self.root, text="Search Filters", padx=10, pady=5)
@@ -68,7 +78,8 @@ class LogViewerApp:
         self.h_scroll = tk.Scrollbar(view_frame, orient=tk.HORIZONTAL)
         self.h_scroll.pack(side=tk.BOTTOM, fill=tk.X)
 
-        self.text_area = tk.Text(view_frame, wrap=tk.NONE, bg=PRESET_BG_COLORS["Dark Gray"], fg="#d4d4d4", font=("Consolas", 10), 
+        self.text_area = tk.Text(view_frame, wrap=tk.NONE, bg=PRESET_BG_COLORS["Dark Gray"], fg="#d4d4d4",
+                                 font=(self.current_font_family.get(), self.current_font_size.get()), 
                                  state=tk.DISABLED, xscrollcommand=self.h_scroll.set, yscrollcommand=self.v_scroll.set,
                                  insertbackground="white")
         self.text_area.pack(expand=True, fill=tk.BOTH)
@@ -79,21 +90,20 @@ class LogViewerApp:
         
         self.add_filter_row()
 
+    def update_font(self, event=None):
+        """フォント設定をTextウィジェットに反映"""
+        new_font = (self.current_font_family.get(), self.current_font_size.get())
+        self.text_area.config(font=new_font)
+
     def handle_bg_preset(self, event=None):
-        """プリセットから背景色を適用"""
-        color_hex = PRESET_BG_COLORS[self.bg_combo_var.get()]
-        self._apply_log_area_bg(color_hex)
+        self._apply_log_area_bg(PRESET_BG_COLORS[self.bg_combo_var.get()])
 
     def pick_log_bg_rgb(self):
-        """RGBカラーピッカーから背景色を適用"""
         color = colorchooser.askcolor(initialcolor=self.text_area.cget("bg"))[1]
-        if color:
-            self._apply_log_area_bg(color)
+        if color: self._apply_log_area_bg(color)
 
     def _apply_log_area_bg(self, color_hex):
-        """ログエリアの背景色と文字色を自動調整して適用"""
         self.text_area.config(bg=color_hex)
-        # 輝度判定で文字色を白か黒に自動調整
         r, g, b = self.root.winfo_rgb(color_hex)
         brightness = (r + g + b) / 3
         new_fg = "#000000" if brightness > 32768 else "#d4d4d4"

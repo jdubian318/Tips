@@ -1,0 +1,1000 @@
+[2026-02-03 16:11:32] CRITICAL: Memory leak detected in module 'auth' - [Code: 131] Exception: IOException
+[2026-02-03 16:11:33] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:11:34] INFO    : Database connection established
+[2026-02-03 16:11:35] CRITICAL: Timeout occurred while waiting for response - [Code: 494] Exception: IOException
+[2026-02-03 16:11:36] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:11:37] DEBUG   : Database connection established
+[2026-02-03 16:11:38] CRITICAL: Memory leak detected in module 'auth' - [Code: 338] Exception: NullPointer
+[2026-02-03 16:11:39] ERROR   : Timeout occurred while waiting for response - [Code: 495] Exception: NullPointer
+[2026-02-03 16:11:40] CRITICAL: Timeout occurred while waiting for response - [Code: 134] Exception: IOException
+[2026-02-03 16:11:41] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:11:42] ERROR   : Query executed: SELECT * FROM users - [Code: 481] Exception: IOException
+[2026-02-03 16:11:43] WARNING : Database connection established
+[2026-02-03 16:11:44] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:11:45] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:11:46] CRITICAL: Memory leak detected in module 'auth' - [Code: 382] Exception: NullPointer
+[2026-02-03 16:11:47] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:11:48] DEBUG   : Database connection established
+[2026-02-03 16:11:49] INFO    : Failed to fetch data from API
+[2026-02-03 16:11:50] ERROR   : Disk space reaching 90% threshold - [Code: 325] Exception: IOException
+[2026-02-03 16:11:51] CRITICAL: Disk space reaching 90% threshold - [Code: 180] Exception: NullPointer
+[2026-02-03 16:11:52] CRITICAL: Timeout occurred while waiting for response - [Code: 453] Exception: IOException
+[2026-02-03 16:11:53] WARNING : Connection to server lost
+[2026-02-03 16:11:54] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:11:55] CRITICAL: Memory leak detected in module 'auth' - [Code: 473] Exception: KeyError
+[2026-02-03 16:11:56] DEBUG   : Connection to server lost
+[2026-02-03 16:11:57] CRITICAL: Initialising background worker process - [Code: 170] Exception: NullPointer
+[2026-02-03 16:11:58] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:11:59] ERROR   : Timeout occurred while waiting for response - [Code: 195] Exception: IOException
+[2026-02-03 16:12:00] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:12:01] ERROR   : Syntax error in configuration file line 42 - [Code: 296] Exception: NullPointer
+[2026-02-03 16:12:02] ERROR   : Connection to server lost - [Code: 215] Exception: IOException
+[2026-02-03 16:12:03] DEBUG   : Initialising background worker process
+[2026-02-03 16:12:04] CRITICAL: Connection to server lost - [Code: 113] Exception: NullPointer
+[2026-02-03 16:12:05] WARNING : Database connection established
+[2026-02-03 16:12:06] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:12:07] CRITICAL: Disk space reaching 90% threshold - [Code: 153] Exception: KeyError
+[2026-02-03 16:12:08] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:12:09] ERROR   : Connection to server lost - [Code: 101] Exception: NullPointer
+[2026-02-03 16:12:10] CRITICAL: Disk space reaching 90% threshold - [Code: 425] Exception: KeyError
+[2026-02-03 16:12:11] CRITICAL: Syntax error in configuration file line 42 - [Code: 341] Exception: IOException
+[2026-02-03 16:12:12] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:12:13] ERROR   : Initialising background worker process - [Code: 337] Exception: KeyError
+[2026-02-03 16:12:14] INFO    : Database connection established
+[2026-02-03 16:12:15] WARNING : Connection to server lost
+[2026-02-03 16:12:16] ERROR   : User logged in successfully - [Code: 489] Exception: NullPointer
+[2026-02-03 16:12:17] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:12:18] WARNING : User logged in successfully
+[2026-02-03 16:12:19] CRITICAL: Database connection established - [Code: 382] Exception: NullPointer
+[2026-02-03 16:12:20] ERROR   : Memory leak detected in module 'auth' - [Code: 308] Exception: IOException
+[2026-02-03 16:12:21] ERROR   : Failed to fetch data from API - [Code: 485] Exception: KeyError
+[2026-02-03 16:12:22] ERROR   : Query executed: SELECT * FROM users - [Code: 214] Exception: KeyError
+[2026-02-03 16:12:23] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:12:24] ERROR   : Disk space reaching 90% threshold - [Code: 329] Exception: NullPointer
+[2026-02-03 16:12:25] ERROR   : Timeout occurred while waiting for response - [Code: 317] Exception: KeyError
+[2026-02-03 16:12:26] ERROR   : Memory leak detected in module 'auth' - [Code: 120] Exception: KeyError
+[2026-02-03 16:12:27] INFO    : Database connection established
+[2026-02-03 16:12:28] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:12:29] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:12:30] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:12:31] CRITICAL: User logged in successfully - [Code: 422] Exception: NullPointer
+[2026-02-03 16:12:32] DEBUG   : Connection to server lost
+[2026-02-03 16:12:33] CRITICAL: Connection to server lost - [Code: 218] Exception: KeyError
+[2026-02-03 16:12:34] CRITICAL: Failed to fetch data from API - [Code: 383] Exception: NullPointer
+[2026-02-03 16:12:35] WARNING : Failed to fetch data from API
+[2026-02-03 16:12:36] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:12:37] DEBUG   : User logged in successfully
+[2026-02-03 16:12:38] DEBUG   : User logged in successfully
+[2026-02-03 16:12:39] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:12:40] INFO    : User logged in successfully
+[2026-02-03 16:12:41] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:12:42] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:12:43] ERROR   : Disk space reaching 90% threshold - [Code: 455] Exception: KeyError
+[2026-02-03 16:12:44] INFO    : Connection to server lost
+[2026-02-03 16:12:45] WARNING : Database connection established
+[2026-02-03 16:12:46] ERROR   : Database connection established - [Code: 291] Exception: IOException
+[2026-02-03 16:12:47] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:12:48] INFO    : Database connection established
+[2026-02-03 16:12:49] INFO    : Database connection established
+[2026-02-03 16:12:50] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:12:51] WARNING : Failed to fetch data from API
+[2026-02-03 16:12:52] DEBUG   : Connection to server lost
+[2026-02-03 16:12:53] CRITICAL: Database connection established - [Code: 101] Exception: IOException
+[2026-02-03 16:12:54] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:12:55] INFO    : Database connection established
+[2026-02-03 16:12:56] WARNING : User logged in successfully
+[2026-02-03 16:12:57] CRITICAL: Query executed: SELECT * FROM users - [Code: 104] Exception: NullPointer
+[2026-02-03 16:12:58] ERROR   : Query executed: SELECT * FROM users - [Code: 227] Exception: IOException
+[2026-02-03 16:12:59] CRITICAL: Database connection established - [Code: 487] Exception: KeyError
+[2026-02-03 16:13:00] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:13:01] INFO    : Database connection established
+[2026-02-03 16:13:02] ERROR   : Database connection established - [Code: 207] Exception: IOException
+[2026-02-03 16:13:03] INFO    : Failed to fetch data from API
+[2026-02-03 16:13:04] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:13:05] WARNING : Initialising background worker process
+[2026-02-03 16:13:06] ERROR   : Timeout occurred while waiting for response - [Code: 138] Exception: IOException
+[2026-02-03 16:13:07] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:13:08] ERROR   : Connection to server lost - [Code: 338] Exception: KeyError
+[2026-02-03 16:13:09] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:13:10] ERROR   : Timeout occurred while waiting for response - [Code: 438] Exception: KeyError
+[2026-02-03 16:13:11] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:13:12] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:13:13] WARNING : Failed to fetch data from API
+[2026-02-03 16:13:14] CRITICAL: Syntax error in configuration file line 42 - [Code: 288] Exception: IOException
+[2026-02-03 16:13:15] WARNING : User logged in successfully
+[2026-02-03 16:13:16] WARNING : User logged in successfully
+[2026-02-03 16:13:17] ERROR   : Memory leak detected in module 'auth' - [Code: 485] Exception: KeyError
+[2026-02-03 16:13:18] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:13:19] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:13:20] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:13:21] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:13:22] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:13:23] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:13:24] ERROR   : Memory leak detected in module 'auth' - [Code: 470] Exception: NullPointer
+[2026-02-03 16:13:25] CRITICAL: Query executed: SELECT * FROM users - [Code: 171] Exception: KeyError
+[2026-02-03 16:13:26] WARNING : Connection to server lost
+[2026-02-03 16:13:27] DEBUG   : Initialising background worker process
+[2026-02-03 16:13:28] ERROR   : Initialising background worker process - [Code: 344] Exception: NullPointer
+[2026-02-03 16:13:29] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:13:30] ERROR   : Failed to fetch data from API - [Code: 230] Exception: KeyError
+[2026-02-03 16:13:31] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:13:32] WARNING : User logged in successfully
+[2026-02-03 16:13:33] DEBUG   : Connection to server lost
+[2026-02-03 16:13:34] INFO    : Initialising background worker process
+[2026-02-03 16:13:35] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:13:36] INFO    : User logged in successfully
+[2026-02-03 16:13:37] CRITICAL: Database connection established - [Code: 349] Exception: KeyError
+[2026-02-03 16:13:38] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:13:39] WARNING : Initialising background worker process
+[2026-02-03 16:13:40] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:13:41] INFO    : User logged in successfully
+[2026-02-03 16:13:42] WARNING : Connection to server lost
+[2026-02-03 16:13:43] ERROR   : Database connection established - [Code: 337] Exception: IOException
+[2026-02-03 16:13:44] ERROR   : Timeout occurred while waiting for response - [Code: 306] Exception: NullPointer
+[2026-02-03 16:13:45] INFO    : Database connection established
+[2026-02-03 16:13:46] CRITICAL: Initialising background worker process - [Code: 124] Exception: IOException
+[2026-02-03 16:13:47] INFO    : User logged in successfully
+[2026-02-03 16:13:48] CRITICAL: Memory leak detected in module 'auth' - [Code: 284] Exception: KeyError
+[2026-02-03 16:13:49] WARNING : Connection to server lost
+[2026-02-03 16:13:50] CRITICAL: Timeout occurred while waiting for response - [Code: 207] Exception: NullPointer
+[2026-02-03 16:13:51] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:13:52] INFO    : Database connection established
+[2026-02-03 16:13:53] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:13:54] WARNING : Initialising background worker process
+[2026-02-03 16:13:55] CRITICAL: Disk space reaching 90% threshold - [Code: 406] Exception: NullPointer
+[2026-02-03 16:13:56] ERROR   : Memory leak detected in module 'auth' - [Code: 337] Exception: IOException
+[2026-02-03 16:13:57] ERROR   : Initialising background worker process - [Code: 348] Exception: NullPointer
+[2026-02-03 16:13:58] ERROR   : Syntax error in configuration file line 42 - [Code: 218] Exception: IOException
+[2026-02-03 16:13:59] CRITICAL: Initialising background worker process - [Code: 169] Exception: KeyError
+[2026-02-03 16:14:00] ERROR   : Failed to fetch data from API - [Code: 492] Exception: NullPointer
+[2026-02-03 16:14:01] ERROR   : Disk space reaching 90% threshold - [Code: 314] Exception: KeyError
+[2026-02-03 16:14:02] ERROR   : Initialising background worker process - [Code: 116] Exception: KeyError
+[2026-02-03 16:14:03] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:14:04] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:14:05] CRITICAL: Failed to fetch data from API - [Code: 199] Exception: IOException
+[2026-02-03 16:14:06] WARNING : Initialising background worker process
+[2026-02-03 16:14:07] WARNING : User logged in successfully
+[2026-02-03 16:14:08] CRITICAL: Initialising background worker process - [Code: 475] Exception: NullPointer
+[2026-02-03 16:14:09] INFO    : Database connection established
+[2026-02-03 16:14:10] ERROR   : Failed to fetch data from API - [Code: 317] Exception: NullPointer
+[2026-02-03 16:14:11] INFO    : User logged in successfully
+[2026-02-03 16:14:12] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:14:13] INFO    : Database connection established
+[2026-02-03 16:14:14] WARNING : Failed to fetch data from API
+[2026-02-03 16:14:15] ERROR   : Failed to fetch data from API - [Code: 118] Exception: KeyError
+[2026-02-03 16:14:16] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:14:17] INFO    : Connection to server lost
+[2026-02-03 16:14:18] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:14:19] INFO    : Failed to fetch data from API
+[2026-02-03 16:14:20] CRITICAL: Disk space reaching 90% threshold - [Code: 459] Exception: KeyError
+[2026-02-03 16:14:21] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:14:22] INFO    : Connection to server lost
+[2026-02-03 16:14:23] INFO    : Connection to server lost
+[2026-02-03 16:14:24] CRITICAL: Memory leak detected in module 'auth' - [Code: 267] Exception: NullPointer
+[2026-02-03 16:14:25] WARNING : Database connection established
+[2026-02-03 16:14:26] CRITICAL: Initialising background worker process - [Code: 451] Exception: KeyError
+[2026-02-03 16:14:27] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:14:28] ERROR   : Disk space reaching 90% threshold - [Code: 179] Exception: IOException
+[2026-02-03 16:14:29] CRITICAL: Failed to fetch data from API - [Code: 318] Exception: IOException
+[2026-02-03 16:14:30] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:14:31] CRITICAL: Timeout occurred while waiting for response - [Code: 488] Exception: KeyError
+[2026-02-03 16:14:32] ERROR   : Syntax error in configuration file line 42 - [Code: 117] Exception: NullPointer
+[2026-02-03 16:14:33] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:14:34] WARNING : Connection to server lost
+[2026-02-03 16:14:35] WARNING : Connection to server lost
+[2026-02-03 16:14:36] WARNING : Connection to server lost
+[2026-02-03 16:14:37] ERROR   : Database connection established - [Code: 479] Exception: NullPointer
+[2026-02-03 16:14:38] CRITICAL: Query executed: SELECT * FROM users - [Code: 471] Exception: KeyError
+[2026-02-03 16:14:39] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:14:40] ERROR   : Memory leak detected in module 'auth' - [Code: 352] Exception: IOException
+[2026-02-03 16:14:41] ERROR   : Initialising background worker process - [Code: 286] Exception: IOException
+[2026-02-03 16:14:42] CRITICAL: Database connection established - [Code: 297] Exception: KeyError
+[2026-02-03 16:14:43] CRITICAL: Timeout occurred while waiting for response - [Code: 162] Exception: NullPointer
+[2026-02-03 16:14:44] CRITICAL: Initialising background worker process - [Code: 168] Exception: NullPointer
+[2026-02-03 16:14:45] INFO    : Connection to server lost
+[2026-02-03 16:14:46] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:14:47] WARNING : Connection to server lost
+[2026-02-03 16:14:48] WARNING : Connection to server lost
+[2026-02-03 16:14:49] ERROR   : Disk space reaching 90% threshold - [Code: 407] Exception: KeyError
+[2026-02-03 16:14:50] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:14:51] DEBUG   : Connection to server lost
+[2026-02-03 16:14:52] WARNING : Database connection established
+[2026-02-03 16:14:53] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:14:54] DEBUG   : Initialising background worker process
+[2026-02-03 16:14:55] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:14:56] CRITICAL: Disk space reaching 90% threshold - [Code: 303] Exception: NullPointer
+[2026-02-03 16:14:57] ERROR   : Query executed: SELECT * FROM users - [Code: 441] Exception: KeyError
+[2026-02-03 16:14:58] CRITICAL: Syntax error in configuration file line 42 - [Code: 275] Exception: IOException
+[2026-02-03 16:14:59] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:15:00] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:15:01] CRITICAL: Failed to fetch data from API - [Code: 123] Exception: IOException
+[2026-02-03 16:15:02] ERROR   : Initialising background worker process - [Code: 205] Exception: KeyError
+[2026-02-03 16:15:03] INFO    : Initialising background worker process
+[2026-02-03 16:15:04] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:15:05] INFO    : Failed to fetch data from API
+[2026-02-03 16:15:06] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:15:07] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:15:08] CRITICAL: Memory leak detected in module 'auth' - [Code: 102] Exception: IOException
+[2026-02-03 16:15:09] ERROR   : Database connection established - [Code: 308] Exception: NullPointer
+[2026-02-03 16:15:10] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:15:11] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:15:12] DEBUG   : User logged in successfully
+[2026-02-03 16:15:13] ERROR   : Database connection established - [Code: 192] Exception: IOException
+[2026-02-03 16:15:14] INFO    : Database connection established
+[2026-02-03 16:15:15] ERROR   : User logged in successfully - [Code: 313] Exception: KeyError
+[2026-02-03 16:15:16] INFO    : Database connection established
+[2026-02-03 16:15:17] CRITICAL: Syntax error in configuration file line 42 - [Code: 246] Exception: KeyError
+[2026-02-03 16:15:18] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:15:19] CRITICAL: Disk space reaching 90% threshold - [Code: 199] Exception: IOException
+[2026-02-03 16:15:20] INFO    : User logged in successfully
+[2026-02-03 16:15:21] ERROR   : Failed to fetch data from API - [Code: 236] Exception: IOException
+[2026-02-03 16:15:22] INFO    : User logged in successfully
+[2026-02-03 16:15:23] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:15:24] INFO    : Connection to server lost
+[2026-02-03 16:15:25] DEBUG   : Database connection established
+[2026-02-03 16:15:26] ERROR   : Connection to server lost - [Code: 395] Exception: NullPointer
+[2026-02-03 16:15:27] WARNING : Database connection established
+[2026-02-03 16:15:28] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:15:29] ERROR   : Memory leak detected in module 'auth' - [Code: 448] Exception: NullPointer
+[2026-02-03 16:15:30] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:15:31] WARNING : Failed to fetch data from API
+[2026-02-03 16:15:32] WARNING : Database connection established
+[2026-02-03 16:15:33] CRITICAL: Syntax error in configuration file line 42 - [Code: 297] Exception: NullPointer
+[2026-02-03 16:15:34] CRITICAL: Failed to fetch data from API - [Code: 328] Exception: NullPointer
+[2026-02-03 16:15:35] WARNING : Database connection established
+[2026-02-03 16:15:36] ERROR   : Database connection established - [Code: 466] Exception: IOException
+[2026-02-03 16:15:37] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:15:38] CRITICAL: Syntax error in configuration file line 42 - [Code: 412] Exception: NullPointer
+[2026-02-03 16:15:39] CRITICAL: Syntax error in configuration file line 42 - [Code: 419] Exception: KeyError
+[2026-02-03 16:15:40] CRITICAL: Timeout occurred while waiting for response - [Code: 480] Exception: NullPointer
+[2026-02-03 16:15:41] DEBUG   : Database connection established
+[2026-02-03 16:15:42] CRITICAL: Timeout occurred while waiting for response - [Code: 355] Exception: KeyError
+[2026-02-03 16:15:43] CRITICAL: Connection to server lost - [Code: 163] Exception: IOException
+[2026-02-03 16:15:44] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:15:45] INFO    : Connection to server lost
+[2026-02-03 16:15:46] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:15:47] CRITICAL: Timeout occurred while waiting for response - [Code: 118] Exception: IOException
+[2026-02-03 16:15:48] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:15:49] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:15:50] CRITICAL: Timeout occurred while waiting for response - [Code: 350] Exception: NullPointer
+[2026-02-03 16:15:51] DEBUG   : Initialising background worker process
+[2026-02-03 16:15:52] DEBUG   : Initialising background worker process
+[2026-02-03 16:15:53] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:15:54] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:15:55] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:15:56] WARNING : User logged in successfully
+[2026-02-03 16:15:57] ERROR   : Connection to server lost - [Code: 485] Exception: KeyError
+[2026-02-03 16:15:58] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:15:59] INFO    : Database connection established
+[2026-02-03 16:16:00] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:16:01] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:16:02] CRITICAL: Failed to fetch data from API - [Code: 500] Exception: KeyError
+[2026-02-03 16:16:03] ERROR   : Memory leak detected in module 'auth' - [Code: 140] Exception: NullPointer
+[2026-02-03 16:16:04] WARNING : User logged in successfully
+[2026-02-03 16:16:05] CRITICAL: Failed to fetch data from API - [Code: 118] Exception: KeyError
+[2026-02-03 16:16:06] DEBUG   : Database connection established
+[2026-02-03 16:16:07] ERROR   : Failed to fetch data from API - [Code: 226] Exception: NullPointer
+[2026-02-03 16:16:08] WARNING : Initialising background worker process
+[2026-02-03 16:16:09] INFO    : Connection to server lost
+[2026-02-03 16:16:10] DEBUG   : Database connection established
+[2026-02-03 16:16:11] INFO    : Connection to server lost
+[2026-02-03 16:16:12] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:16:13] DEBUG   : User logged in successfully
+[2026-02-03 16:16:14] ERROR   : Failed to fetch data from API - [Code: 110] Exception: NullPointer
+[2026-02-03 16:16:15] CRITICAL: Disk space reaching 90% threshold - [Code: 280] Exception: IOException
+[2026-02-03 16:16:16] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:16:17] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:16:18] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:16:19] CRITICAL: Memory leak detected in module 'auth' - [Code: 447] Exception: KeyError
+[2026-02-03 16:16:20] DEBUG   : User logged in successfully
+[2026-02-03 16:16:21] CRITICAL: Memory leak detected in module 'auth' - [Code: 399] Exception: NullPointer
+[2026-02-03 16:16:22] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:16:23] WARNING : Connection to server lost
+[2026-02-03 16:16:24] ERROR   : Memory leak detected in module 'auth' - [Code: 203] Exception: KeyError
+[2026-02-03 16:16:25] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:16:26] ERROR   : Query executed: SELECT * FROM users - [Code: 407] Exception: NullPointer
+[2026-02-03 16:16:27] WARNING : User logged in successfully
+[2026-02-03 16:16:28] ERROR   : Syntax error in configuration file line 42 - [Code: 298] Exception: NullPointer
+[2026-02-03 16:16:29] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:16:30] CRITICAL: Initialising background worker process - [Code: 265] Exception: IOException
+[2026-02-03 16:16:31] CRITICAL: Syntax error in configuration file line 42 - [Code: 242] Exception: IOException
+[2026-02-03 16:16:32] CRITICAL: Disk space reaching 90% threshold - [Code: 234] Exception: IOException
+[2026-02-03 16:16:33] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:16:34] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:16:35] WARNING : Database connection established
+[2026-02-03 16:16:36] ERROR   : Memory leak detected in module 'auth' - [Code: 242] Exception: IOException
+[2026-02-03 16:16:37] CRITICAL: Timeout occurred while waiting for response - [Code: 103] Exception: KeyError
+[2026-02-03 16:16:38] ERROR   : Memory leak detected in module 'auth' - [Code: 358] Exception: KeyError
+[2026-02-03 16:16:39] ERROR   : Initialising background worker process - [Code: 297] Exception: NullPointer
+[2026-02-03 16:16:40] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:16:41] ERROR   : Syntax error in configuration file line 42 - [Code: 382] Exception: NullPointer
+[2026-02-03 16:16:42] INFO    : Connection to server lost
+[2026-02-03 16:16:43] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:16:44] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:16:45] ERROR   : Memory leak detected in module 'auth' - [Code: 177] Exception: IOException
+[2026-02-03 16:16:46] CRITICAL: Memory leak detected in module 'auth' - [Code: 128] Exception: KeyError
+[2026-02-03 16:16:47] WARNING : Failed to fetch data from API
+[2026-02-03 16:16:48] ERROR   : Database connection established - [Code: 289] Exception: KeyError
+[2026-02-03 16:16:49] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:16:50] CRITICAL: User logged in successfully - [Code: 108] Exception: NullPointer
+[2026-02-03 16:16:51] INFO    : Database connection established
+[2026-02-03 16:16:52] ERROR   : Database connection established - [Code: 432] Exception: IOException
+[2026-02-03 16:16:53] ERROR   : User logged in successfully - [Code: 199] Exception: NullPointer
+[2026-02-03 16:16:54] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:16:55] DEBUG   : Connection to server lost
+[2026-02-03 16:16:56] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:16:57] CRITICAL: Memory leak detected in module 'auth' - [Code: 486] Exception: IOException
+[2026-02-03 16:16:58] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:16:59] ERROR   : Failed to fetch data from API - [Code: 272] Exception: IOException
+[2026-02-03 16:17:00] ERROR   : Failed to fetch data from API - [Code: 481] Exception: KeyError
+[2026-02-03 16:17:01] CRITICAL: Database connection established - [Code: 451] Exception: IOException
+[2026-02-03 16:17:02] ERROR   : Database connection established - [Code: 114] Exception: KeyError
+[2026-02-03 16:17:03] ERROR   : Memory leak detected in module 'auth' - [Code: 416] Exception: IOException
+[2026-02-03 16:17:04] INFO    : Database connection established
+[2026-02-03 16:17:05] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:17:06] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:17:07] CRITICAL: Connection to server lost - [Code: 252] Exception: NullPointer
+[2026-02-03 16:17:08] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:17:09] ERROR   : User logged in successfully - [Code: 192] Exception: KeyError
+[2026-02-03 16:17:10] INFO    : Initialising background worker process
+[2026-02-03 16:17:11] WARNING : Connection to server lost
+[2026-02-03 16:17:12] CRITICAL: Query executed: SELECT * FROM users - [Code: 282] Exception: KeyError
+[2026-02-03 16:17:13] ERROR   : Connection to server lost - [Code: 218] Exception: NullPointer
+[2026-02-03 16:17:14] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:17:15] CRITICAL: Memory leak detected in module 'auth' - [Code: 251] Exception: IOException
+[2026-02-03 16:17:16] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:17:17] ERROR   : User logged in successfully - [Code: 197] Exception: KeyError
+[2026-02-03 16:17:18] CRITICAL: Database connection established - [Code: 324] Exception: IOException
+[2026-02-03 16:17:19] DEBUG   : User logged in successfully
+[2026-02-03 16:17:20] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:17:21] CRITICAL: Memory leak detected in module 'auth' - [Code: 181] Exception: IOException
+[2026-02-03 16:17:22] ERROR   : Connection to server lost - [Code: 220] Exception: KeyError
+[2026-02-03 16:17:23] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:17:24] ERROR   : User logged in successfully - [Code: 456] Exception: KeyError
+[2026-02-03 16:17:25] CRITICAL: Disk space reaching 90% threshold - [Code: 420] Exception: KeyError
+[2026-02-03 16:17:26] CRITICAL: Failed to fetch data from API - [Code: 113] Exception: IOException
+[2026-02-03 16:17:27] ERROR   : Failed to fetch data from API - [Code: 390] Exception: NullPointer
+[2026-02-03 16:17:28] WARNING : Initialising background worker process
+[2026-02-03 16:17:29] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:17:30] CRITICAL: Syntax error in configuration file line 42 - [Code: 486] Exception: KeyError
+[2026-02-03 16:17:31] CRITICAL: Query executed: SELECT * FROM users - [Code: 358] Exception: NullPointer
+[2026-02-03 16:17:32] CRITICAL: Syntax error in configuration file line 42 - [Code: 189] Exception: IOException
+[2026-02-03 16:17:33] ERROR   : User logged in successfully - [Code: 264] Exception: KeyError
+[2026-02-03 16:17:34] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:17:35] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:17:36] ERROR   : Query executed: SELECT * FROM users - [Code: 108] Exception: IOException
+[2026-02-03 16:17:37] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:17:38] DEBUG   : Database connection established
+[2026-02-03 16:17:39] INFO    : Initialising background worker process
+[2026-02-03 16:17:40] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:17:41] DEBUG   : Initialising background worker process
+[2026-02-03 16:17:42] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:17:43] WARNING : Database connection established
+[2026-02-03 16:17:44] DEBUG   : Database connection established
+[2026-02-03 16:17:45] INFO    : Failed to fetch data from API
+[2026-02-03 16:17:46] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:17:47] CRITICAL: Database connection established - [Code: 119] Exception: KeyError
+[2026-02-03 16:17:48] ERROR   : User logged in successfully - [Code: 135] Exception: IOException
+[2026-02-03 16:17:49] ERROR   : Query executed: SELECT * FROM users - [Code: 439] Exception: IOException
+[2026-02-03 16:17:50] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:17:51] DEBUG   : Database connection established
+[2026-02-03 16:17:52] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:17:53] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:17:54] INFO    : User logged in successfully
+[2026-02-03 16:17:55] ERROR   : User logged in successfully - [Code: 306] Exception: IOException
+[2026-02-03 16:17:56] ERROR   : Database connection established - [Code: 461] Exception: KeyError
+[2026-02-03 16:17:57] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:17:58] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:17:59] ERROR   : Timeout occurred while waiting for response - [Code: 287] Exception: IOException
+[2026-02-03 16:18:00] CRITICAL: Syntax error in configuration file line 42 - [Code: 240] Exception: NullPointer
+[2026-02-03 16:18:01] DEBUG   : Initialising background worker process
+[2026-02-03 16:18:02] INFO    : Database connection established
+[2026-02-03 16:18:03] CRITICAL: Connection to server lost - [Code: 283] Exception: KeyError
+[2026-02-03 16:18:04] CRITICAL: Connection to server lost - [Code: 432] Exception: KeyError
+[2026-02-03 16:18:05] INFO    : User logged in successfully
+[2026-02-03 16:18:06] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:18:07] CRITICAL: Failed to fetch data from API - [Code: 408] Exception: NullPointer
+[2026-02-03 16:18:08] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:18:09] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:18:10] ERROR   : Failed to fetch data from API - [Code: 452] Exception: KeyError
+[2026-02-03 16:18:11] INFO    : Database connection established
+[2026-02-03 16:18:12] INFO    : Initialising background worker process
+[2026-02-03 16:18:13] CRITICAL: Syntax error in configuration file line 42 - [Code: 164] Exception: IOException
+[2026-02-03 16:18:14] DEBUG   : Initialising background worker process
+[2026-02-03 16:18:15] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:18:16] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:18:17] INFO    : Database connection established
+[2026-02-03 16:18:18] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:18:19] INFO    : Failed to fetch data from API
+[2026-02-03 16:18:20] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:18:21] CRITICAL: Timeout occurred while waiting for response - [Code: 246] Exception: IOException
+[2026-02-03 16:18:22] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:18:23] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:18:24] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:18:25] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:18:26] CRITICAL: Timeout occurred while waiting for response - [Code: 210] Exception: NullPointer
+[2026-02-03 16:18:27] CRITICAL: Query executed: SELECT * FROM users - [Code: 220] Exception: KeyError
+[2026-02-03 16:18:28] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:18:29] WARNING : User logged in successfully
+[2026-02-03 16:18:30] ERROR   : Connection to server lost - [Code: 318] Exception: NullPointer
+[2026-02-03 16:18:31] WARNING : Initialising background worker process
+[2026-02-03 16:18:32] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:18:33] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:18:34] INFO    : Initialising background worker process
+[2026-02-03 16:18:35] ERROR   : User logged in successfully - [Code: 175] Exception: IOException
+[2026-02-03 16:18:36] INFO    : Database connection established
+[2026-02-03 16:18:37] ERROR   : Initialising background worker process - [Code: 428] Exception: NullPointer
+[2026-02-03 16:18:38] CRITICAL: Query executed: SELECT * FROM users - [Code: 254] Exception: IOException
+[2026-02-03 16:18:39] WARNING : Connection to server lost
+[2026-02-03 16:18:40] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:18:41] CRITICAL: User logged in successfully - [Code: 350] Exception: IOException
+[2026-02-03 16:18:42] ERROR   : Initialising background worker process - [Code: 214] Exception: NullPointer
+[2026-02-03 16:18:43] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:18:44] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:18:45] CRITICAL: Query executed: SELECT * FROM users - [Code: 359] Exception: IOException
+[2026-02-03 16:18:46] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:18:47] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:18:48] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:18:49] ERROR   : Failed to fetch data from API - [Code: 343] Exception: KeyError
+[2026-02-03 16:18:50] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:18:51] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:18:52] ERROR   : User logged in successfully - [Code: 136] Exception: KeyError
+[2026-02-03 16:18:53] ERROR   : Disk space reaching 90% threshold - [Code: 358] Exception: KeyError
+[2026-02-03 16:18:54] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:18:55] ERROR   : Memory leak detected in module 'auth' - [Code: 152] Exception: IOException
+[2026-02-03 16:18:56] CRITICAL: Connection to server lost - [Code: 469] Exception: NullPointer
+[2026-02-03 16:18:57] DEBUG   : Connection to server lost
+[2026-02-03 16:18:58] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:18:59] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:19:00] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:19:01] CRITICAL: Memory leak detected in module 'auth' - [Code: 300] Exception: NullPointer
+[2026-02-03 16:19:02] CRITICAL: Timeout occurred while waiting for response - [Code: 206] Exception: KeyError
+[2026-02-03 16:19:03] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:19:04] ERROR   : Failed to fetch data from API - [Code: 428] Exception: NullPointer
+[2026-02-03 16:19:05] CRITICAL: Database connection established - [Code: 112] Exception: NullPointer
+[2026-02-03 16:19:06] CRITICAL: Disk space reaching 90% threshold - [Code: 167] Exception: IOException
+[2026-02-03 16:19:07] INFO    : Failed to fetch data from API
+[2026-02-03 16:19:08] ERROR   : Database connection established - [Code: 328] Exception: IOException
+[2026-02-03 16:19:09] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:19:10] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:19:11] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:19:12] CRITICAL: Query executed: SELECT * FROM users - [Code: 275] Exception: NullPointer
+[2026-02-03 16:19:13] DEBUG   : Database connection established
+[2026-02-03 16:19:14] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:19:15] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:19:16] ERROR   : Query executed: SELECT * FROM users - [Code: 317] Exception: KeyError
+[2026-02-03 16:19:17] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:19:18] INFO    : Connection to server lost
+[2026-02-03 16:19:19] ERROR   : Database connection established - [Code: 109] Exception: NullPointer
+[2026-02-03 16:19:20] ERROR   : Connection to server lost - [Code: 287] Exception: KeyError
+[2026-02-03 16:19:21] DEBUG   : Initialising background worker process
+[2026-02-03 16:19:22] ERROR   : Failed to fetch data from API - [Code: 206] Exception: NullPointer
+[2026-02-03 16:19:23] CRITICAL: Memory leak detected in module 'auth' - [Code: 249] Exception: KeyError
+[2026-02-03 16:19:24] ERROR   : User logged in successfully - [Code: 238] Exception: KeyError
+[2026-02-03 16:19:25] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:19:26] INFO    : User logged in successfully
+[2026-02-03 16:19:27] WARNING : Failed to fetch data from API
+[2026-02-03 16:19:28] CRITICAL: Memory leak detected in module 'auth' - [Code: 448] Exception: IOException
+[2026-02-03 16:19:29] ERROR   : Initialising background worker process - [Code: 247] Exception: NullPointer
+[2026-02-03 16:19:30] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:19:31] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:19:32] WARNING : Initialising background worker process
+[2026-02-03 16:19:33] CRITICAL: Query executed: SELECT * FROM users - [Code: 423] Exception: IOException
+[2026-02-03 16:19:34] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:19:35] CRITICAL: Syntax error in configuration file line 42 - [Code: 389] Exception: KeyError
+[2026-02-03 16:19:36] CRITICAL: Memory leak detected in module 'auth' - [Code: 120] Exception: KeyError
+[2026-02-03 16:19:37] CRITICAL: Connection to server lost - [Code: 305] Exception: NullPointer
+[2026-02-03 16:19:38] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:19:39] DEBUG   : Database connection established
+[2026-02-03 16:19:40] WARNING : Database connection established
+[2026-02-03 16:19:41] WARNING : Database connection established
+[2026-02-03 16:19:42] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:19:43] WARNING : Failed to fetch data from API
+[2026-02-03 16:19:44] INFO    : User logged in successfully
+[2026-02-03 16:19:45] WARNING : Database connection established
+[2026-02-03 16:19:46] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:19:47] ERROR   : Disk space reaching 90% threshold - [Code: 112] Exception: NullPointer
+[2026-02-03 16:19:48] INFO    : Database connection established
+[2026-02-03 16:19:49] CRITICAL: Disk space reaching 90% threshold - [Code: 312] Exception: KeyError
+[2026-02-03 16:19:50] INFO    : Failed to fetch data from API
+[2026-02-03 16:19:51] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:19:52] WARNING : Failed to fetch data from API
+[2026-02-03 16:19:53] WARNING : Initialising background worker process
+[2026-02-03 16:19:54] ERROR   : User logged in successfully - [Code: 223] Exception: IOException
+[2026-02-03 16:19:55] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:19:56] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:19:57] ERROR   : Memory leak detected in module 'auth' - [Code: 381] Exception: IOException
+[2026-02-03 16:19:58] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:19:59] WARNING : Failed to fetch data from API
+[2026-02-03 16:20:00] WARNING : Database connection established
+[2026-02-03 16:20:01] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:20:02] DEBUG   : Initialising background worker process
+[2026-02-03 16:20:03] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:20:04] ERROR   : Failed to fetch data from API - [Code: 162] Exception: NullPointer
+[2026-02-03 16:20:05] CRITICAL: Failed to fetch data from API - [Code: 293] Exception: KeyError
+[2026-02-03 16:20:06] DEBUG   : Database connection established
+[2026-02-03 16:20:07] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:20:08] INFO    : Connection to server lost
+[2026-02-03 16:20:09] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:20:10] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:20:11] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:20:12] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:20:13] DEBUG   : Connection to server lost
+[2026-02-03 16:20:14] ERROR   : Syntax error in configuration file line 42 - [Code: 345] Exception: KeyError
+[2026-02-03 16:20:15] ERROR   : Timeout occurred while waiting for response - [Code: 252] Exception: IOException
+[2026-02-03 16:20:16] ERROR   : User logged in successfully - [Code: 388] Exception: KeyError
+[2026-02-03 16:20:17] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:20:18] WARNING : Database connection established
+[2026-02-03 16:20:19] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:20:20] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:20:21] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:20:22] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:20:23] CRITICAL: Memory leak detected in module 'auth' - [Code: 224] Exception: KeyError
+[2026-02-03 16:20:24] ERROR   : Initialising background worker process - [Code: 390] Exception: KeyError
+[2026-02-03 16:20:25] CRITICAL: Query executed: SELECT * FROM users - [Code: 219] Exception: IOException
+[2026-02-03 16:20:26] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:20:27] CRITICAL: Disk space reaching 90% threshold - [Code: 153] Exception: NullPointer
+[2026-02-03 16:20:28] CRITICAL: Failed to fetch data from API - [Code: 277] Exception: KeyError
+[2026-02-03 16:20:29] ERROR   : Syntax error in configuration file line 42 - [Code: 150] Exception: NullPointer
+[2026-02-03 16:20:30] ERROR   : Initialising background worker process - [Code: 233] Exception: IOException
+[2026-02-03 16:20:31] ERROR   : Memory leak detected in module 'auth' - [Code: 194] Exception: KeyError
+[2026-02-03 16:20:32] WARNING : Database connection established
+[2026-02-03 16:20:33] CRITICAL: Syntax error in configuration file line 42 - [Code: 314] Exception: KeyError
+[2026-02-03 16:20:34] ERROR   : Syntax error in configuration file line 42 - [Code: 193] Exception: NullPointer
+[2026-02-03 16:20:35] ERROR   : Initialising background worker process - [Code: 376] Exception: KeyError
+[2026-02-03 16:20:36] INFO    : Failed to fetch data from API
+[2026-02-03 16:20:37] WARNING : Database connection established
+[2026-02-03 16:20:38] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:20:39] CRITICAL: Query executed: SELECT * FROM users - [Code: 281] Exception: KeyError
+[2026-02-03 16:20:40] INFO    : Initialising background worker process
+[2026-02-03 16:20:41] CRITICAL: Disk space reaching 90% threshold - [Code: 169] Exception: IOException
+[2026-02-03 16:20:42] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:20:43] WARNING : Connection to server lost
+[2026-02-03 16:20:44] CRITICAL: Connection to server lost - [Code: 479] Exception: NullPointer
+[2026-02-03 16:20:45] WARNING : Failed to fetch data from API
+[2026-02-03 16:20:46] CRITICAL: User logged in successfully - [Code: 330] Exception: NullPointer
+[2026-02-03 16:20:47] CRITICAL: Query executed: SELECT * FROM users - [Code: 263] Exception: KeyError
+[2026-02-03 16:20:48] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:20:49] ERROR   : Query executed: SELECT * FROM users - [Code: 370] Exception: KeyError
+[2026-02-03 16:20:50] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:20:51] INFO    : Connection to server lost
+[2026-02-03 16:20:52] INFO    : Database connection established
+[2026-02-03 16:20:53] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:20:54] ERROR   : User logged in successfully - [Code: 339] Exception: NullPointer
+[2026-02-03 16:20:55] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:20:56] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:20:57] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:20:58] WARNING : Connection to server lost
+[2026-02-03 16:20:59] DEBUG   : Initialising background worker process
+[2026-02-03 16:21:00] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:21:01] ERROR   : Memory leak detected in module 'auth' - [Code: 299] Exception: NullPointer
+[2026-02-03 16:21:02] DEBUG   : User logged in successfully
+[2026-02-03 16:21:03] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:21:04] DEBUG   : Initialising background worker process
+[2026-02-03 16:21:05] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:21:06] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:21:07] ERROR   : Syntax error in configuration file line 42 - [Code: 374] Exception: KeyError
+[2026-02-03 16:21:08] ERROR   : Initialising background worker process - [Code: 278] Exception: IOException
+[2026-02-03 16:21:09] ERROR   : Disk space reaching 90% threshold - [Code: 295] Exception: IOException
+[2026-02-03 16:21:10] CRITICAL: Connection to server lost - [Code: 347] Exception: NullPointer
+[2026-02-03 16:21:11] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:21:12] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:21:13] DEBUG   : Database connection established
+[2026-02-03 16:21:14] CRITICAL: Syntax error in configuration file line 42 - [Code: 406] Exception: IOException
+[2026-02-03 16:21:15] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:21:16] CRITICAL: User logged in successfully - [Code: 468] Exception: IOException
+[2026-02-03 16:21:17] CRITICAL: Syntax error in configuration file line 42 - [Code: 230] Exception: IOException
+[2026-02-03 16:21:18] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:21:19] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:21:20] WARNING : Initialising background worker process
+[2026-02-03 16:21:21] ERROR   : Failed to fetch data from API - [Code: 177] Exception: IOException
+[2026-02-03 16:21:22] DEBUG   : Database connection established
+[2026-02-03 16:21:23] ERROR   : User logged in successfully - [Code: 329] Exception: KeyError
+[2026-02-03 16:21:24] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:21:25] ERROR   : Initialising background worker process - [Code: 384] Exception: IOException
+[2026-02-03 16:21:26] ERROR   : Timeout occurred while waiting for response - [Code: 196] Exception: KeyError
+[2026-02-03 16:21:27] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:21:28] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:21:29] INFO    : Database connection established
+[2026-02-03 16:21:30] DEBUG   : Connection to server lost
+[2026-02-03 16:21:31] ERROR   : Initialising background worker process - [Code: 218] Exception: KeyError
+[2026-02-03 16:21:32] ERROR   : Syntax error in configuration file line 42 - [Code: 356] Exception: KeyError
+[2026-02-03 16:21:33] WARNING : Failed to fetch data from API
+[2026-02-03 16:21:34] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:21:35] DEBUG   : Database connection established
+[2026-02-03 16:21:36] ERROR   : Disk space reaching 90% threshold - [Code: 120] Exception: IOException
+[2026-02-03 16:21:37] ERROR   : Query executed: SELECT * FROM users - [Code: 483] Exception: KeyError
+[2026-02-03 16:21:38] CRITICAL: Initialising background worker process - [Code: 483] Exception: KeyError
+[2026-02-03 16:21:39] CRITICAL: Query executed: SELECT * FROM users - [Code: 212] Exception: IOException
+[2026-02-03 16:21:40] CRITICAL: Syntax error in configuration file line 42 - [Code: 491] Exception: NullPointer
+[2026-02-03 16:21:41] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:21:42] WARNING : Initialising background worker process
+[2026-02-03 16:21:43] CRITICAL: Database connection established - [Code: 124] Exception: NullPointer
+[2026-02-03 16:21:44] CRITICAL: Memory leak detected in module 'auth' - [Code: 397] Exception: NullPointer
+[2026-02-03 16:21:45] ERROR   : Timeout occurred while waiting for response - [Code: 301] Exception: IOException
+[2026-02-03 16:21:46] CRITICAL: Query executed: SELECT * FROM users - [Code: 137] Exception: KeyError
+[2026-02-03 16:21:47] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:21:48] CRITICAL: Database connection established - [Code: 344] Exception: KeyError
+[2026-02-03 16:21:49] CRITICAL: Timeout occurred while waiting for response - [Code: 314] Exception: NullPointer
+[2026-02-03 16:21:50] ERROR   : Timeout occurred while waiting for response - [Code: 490] Exception: NullPointer
+[2026-02-03 16:21:51] CRITICAL: Initialising background worker process - [Code: 477] Exception: NullPointer
+[2026-02-03 16:21:52] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:21:53] WARNING : User logged in successfully
+[2026-02-03 16:21:54] WARNING : User logged in successfully
+[2026-02-03 16:21:55] INFO    : Initialising background worker process
+[2026-02-03 16:21:56] WARNING : Database connection established
+[2026-02-03 16:21:57] WARNING : Initialising background worker process
+[2026-02-03 16:21:58] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:21:59] ERROR   : Database connection established - [Code: 193] Exception: NullPointer
+[2026-02-03 16:22:00] INFO    : Connection to server lost
+[2026-02-03 16:22:01] CRITICAL: Syntax error in configuration file line 42 - [Code: 474] Exception: KeyError
+[2026-02-03 16:22:02] DEBUG   : Connection to server lost
+[2026-02-03 16:22:03] WARNING : Connection to server lost
+[2026-02-03 16:22:04] WARNING : Database connection established
+[2026-02-03 16:22:05] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:22:06] ERROR   : Disk space reaching 90% threshold - [Code: 403] Exception: NullPointer
+[2026-02-03 16:22:07] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:22:08] ERROR   : Memory leak detected in module 'auth' - [Code: 486] Exception: NullPointer
+[2026-02-03 16:22:09] WARNING : Database connection established
+[2026-02-03 16:22:10] INFO    : Database connection established
+[2026-02-03 16:22:11] DEBUG   : Connection to server lost
+[2026-02-03 16:22:12] ERROR   : Failed to fetch data from API - [Code: 193] Exception: IOException
+[2026-02-03 16:22:13] WARNING : Failed to fetch data from API
+[2026-02-03 16:22:14] WARNING : User logged in successfully
+[2026-02-03 16:22:15] CRITICAL: Memory leak detected in module 'auth' - [Code: 365] Exception: NullPointer
+[2026-02-03 16:22:16] INFO    : Connection to server lost
+[2026-02-03 16:22:17] CRITICAL: Memory leak detected in module 'auth' - [Code: 202] Exception: NullPointer
+[2026-02-03 16:22:18] CRITICAL: Failed to fetch data from API - [Code: 300] Exception: IOException
+[2026-02-03 16:22:19] CRITICAL: Timeout occurred while waiting for response - [Code: 273] Exception: KeyError
+[2026-02-03 16:22:20] ERROR   : Query executed: SELECT * FROM users - [Code: 231] Exception: KeyError
+[2026-02-03 16:22:21] DEBUG   : Connection to server lost
+[2026-02-03 16:22:22] INFO    : Initialising background worker process
+[2026-02-03 16:22:23] CRITICAL: Database connection established - [Code: 346] Exception: NullPointer
+[2026-02-03 16:22:24] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:22:25] ERROR   : Memory leak detected in module 'auth' - [Code: 359] Exception: IOException
+[2026-02-03 16:22:26] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:22:27] INFO    : Failed to fetch data from API
+[2026-02-03 16:22:28] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:22:29] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:22:30] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:22:31] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:22:32] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:22:33] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:22:34] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:22:35] ERROR   : Connection to server lost - [Code: 470] Exception: KeyError
+[2026-02-03 16:22:36] ERROR   : Query executed: SELECT * FROM users - [Code: 493] Exception: NullPointer
+[2026-02-03 16:22:37] DEBUG   : Database connection established
+[2026-02-03 16:22:38] INFO    : Database connection established
+[2026-02-03 16:22:39] ERROR   : Connection to server lost - [Code: 332] Exception: IOException
+[2026-02-03 16:22:40] CRITICAL: Database connection established - [Code: 150] Exception: NullPointer
+[2026-02-03 16:22:41] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:22:42] WARNING : Connection to server lost
+[2026-02-03 16:22:43] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:22:44] CRITICAL: Database connection established - [Code: 417] Exception: NullPointer
+[2026-02-03 16:22:45] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:22:46] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:22:47] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:22:48] WARNING : Connection to server lost
+[2026-02-03 16:22:49] CRITICAL: Memory leak detected in module 'auth' - [Code: 102] Exception: IOException
+[2026-02-03 16:22:50] CRITICAL: Syntax error in configuration file line 42 - [Code: 408] Exception: NullPointer
+[2026-02-03 16:22:51] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:22:52] CRITICAL: Query executed: SELECT * FROM users - [Code: 427] Exception: KeyError
+[2026-02-03 16:22:53] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:22:54] ERROR   : Disk space reaching 90% threshold - [Code: 180] Exception: IOException
+[2026-02-03 16:22:55] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:22:56] ERROR   : Failed to fetch data from API - [Code: 329] Exception: IOException
+[2026-02-03 16:22:57] CRITICAL: Connection to server lost - [Code: 273] Exception: NullPointer
+[2026-02-03 16:22:58] INFO    : Database connection established
+[2026-02-03 16:22:59] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:23:00] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:23:01] ERROR   : Database connection established - [Code: 347] Exception: NullPointer
+[2026-02-03 16:23:02] WARNING : Initialising background worker process
+[2026-02-03 16:23:03] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:23:04] ERROR   : Syntax error in configuration file line 42 - [Code: 486] Exception: NullPointer
+[2026-02-03 16:23:05] DEBUG   : Connection to server lost
+[2026-02-03 16:23:06] INFO    : User logged in successfully
+[2026-02-03 16:23:07] CRITICAL: Failed to fetch data from API - [Code: 385] Exception: IOException
+[2026-02-03 16:23:08] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:23:09] WARNING : Initialising background worker process
+[2026-02-03 16:23:10] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:23:11] CRITICAL: Failed to fetch data from API - [Code: 326] Exception: KeyError
+[2026-02-03 16:23:12] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:23:13] DEBUG   : User logged in successfully
+[2026-02-03 16:23:14] WARNING : Failed to fetch data from API
+[2026-02-03 16:23:15] INFO    : Failed to fetch data from API
+[2026-02-03 16:23:16] WARNING : Connection to server lost
+[2026-02-03 16:23:17] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:23:18] WARNING : User logged in successfully
+[2026-02-03 16:23:19] INFO    : Connection to server lost
+[2026-02-03 16:23:20] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:23:21] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:23:22] CRITICAL: Failed to fetch data from API - [Code: 153] Exception: KeyError
+[2026-02-03 16:23:23] CRITICAL: Syntax error in configuration file line 42 - [Code: 109] Exception: KeyError
+[2026-02-03 16:23:24] WARNING : Connection to server lost
+[2026-02-03 16:23:25] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:23:26] INFO    : Database connection established
+[2026-02-03 16:23:27] CRITICAL: Disk space reaching 90% threshold - [Code: 164] Exception: KeyError
+[2026-02-03 16:23:28] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:23:29] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:23:30] ERROR   : User logged in successfully - [Code: 275] Exception: KeyError
+[2026-02-03 16:23:31] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:23:32] ERROR   : User logged in successfully - [Code: 115] Exception: NullPointer
+[2026-02-03 16:23:33] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:23:34] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:23:35] INFO    : Failed to fetch data from API
+[2026-02-03 16:23:36] ERROR   : Failed to fetch data from API - [Code: 462] Exception: KeyError
+[2026-02-03 16:23:37] CRITICAL: Disk space reaching 90% threshold - [Code: 433] Exception: IOException
+[2026-02-03 16:23:38] ERROR   : User logged in successfully - [Code: 420] Exception: KeyError
+[2026-02-03 16:23:39] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:23:40] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:23:41] ERROR   : Query executed: SELECT * FROM users - [Code: 348] Exception: NullPointer
+[2026-02-03 16:23:42] DEBUG   : Connection to server lost
+[2026-02-03 16:23:43] INFO    : Failed to fetch data from API
+[2026-02-03 16:23:44] ERROR   : Database connection established - [Code: 232] Exception: NullPointer
+[2026-02-03 16:23:45] CRITICAL: Query executed: SELECT * FROM users - [Code: 243] Exception: NullPointer
+[2026-02-03 16:23:46] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:23:47] DEBUG   : Connection to server lost
+[2026-02-03 16:23:48] DEBUG   : User logged in successfully
+[2026-02-03 16:23:49] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:23:50] ERROR   : Syntax error in configuration file line 42 - [Code: 272] Exception: IOException
+[2026-02-03 16:23:51] CRITICAL: Disk space reaching 90% threshold - [Code: 155] Exception: KeyError
+[2026-02-03 16:23:52] WARNING : User logged in successfully
+[2026-02-03 16:23:53] CRITICAL: Timeout occurred while waiting for response - [Code: 224] Exception: NullPointer
+[2026-02-03 16:23:54] DEBUG   : Connection to server lost
+[2026-02-03 16:23:55] ERROR   : Failed to fetch data from API - [Code: 488] Exception: IOException
+[2026-02-03 16:23:56] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:23:57] CRITICAL: Disk space reaching 90% threshold - [Code: 269] Exception: IOException
+[2026-02-03 16:23:58] ERROR   : Connection to server lost - [Code: 429] Exception: NullPointer
+[2026-02-03 16:23:59] WARNING : User logged in successfully
+[2026-02-03 16:24:00] ERROR   : Timeout occurred while waiting for response - [Code: 119] Exception: KeyError
+[2026-02-03 16:24:01] INFO    : Initialising background worker process
+[2026-02-03 16:24:02] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:24:03] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:24:04] CRITICAL: Memory leak detected in module 'auth' - [Code: 290] Exception: NullPointer
+[2026-02-03 16:24:05] CRITICAL: User logged in successfully - [Code: 353] Exception: NullPointer
+[2026-02-03 16:24:06] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:24:07] ERROR   : Memory leak detected in module 'auth' - [Code: 309] Exception: IOException
+[2026-02-03 16:24:08] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:24:09] DEBUG   : Connection to server lost
+[2026-02-03 16:24:10] ERROR   : Failed to fetch data from API - [Code: 236] Exception: KeyError
+[2026-02-03 16:24:11] INFO    : Initialising background worker process
+[2026-02-03 16:24:12] CRITICAL: Failed to fetch data from API - [Code: 220] Exception: IOException
+[2026-02-03 16:24:13] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:24:14] ERROR   : User logged in successfully - [Code: 239] Exception: KeyError
+[2026-02-03 16:24:15] ERROR   : Connection to server lost - [Code: 326] Exception: KeyError
+[2026-02-03 16:24:16] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:24:17] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:24:18] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:24:19] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:24:20] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:24:21] CRITICAL: User logged in successfully - [Code: 205] Exception: IOException
+[2026-02-03 16:24:22] CRITICAL: Initialising background worker process - [Code: 326] Exception: KeyError
+[2026-02-03 16:24:23] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:24:24] ERROR   : Failed to fetch data from API - [Code: 306] Exception: NullPointer
+[2026-02-03 16:24:25] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:24:26] CRITICAL: Memory leak detected in module 'auth' - [Code: 410] Exception: NullPointer
+[2026-02-03 16:24:27] INFO    : User logged in successfully
+[2026-02-03 16:24:28] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:24:29] CRITICAL: Syntax error in configuration file line 42 - [Code: 160] Exception: NullPointer
+[2026-02-03 16:24:30] DEBUG   : Initialising background worker process
+[2026-02-03 16:24:31] CRITICAL: User logged in successfully - [Code: 423] Exception: NullPointer
+[2026-02-03 16:24:32] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:24:33] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:24:34] ERROR   : Query executed: SELECT * FROM users - [Code: 101] Exception: KeyError
+[2026-02-03 16:24:35] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:24:36] WARNING : Connection to server lost
+[2026-02-03 16:24:37] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:24:38] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:24:39] ERROR   : Initialising background worker process - [Code: 323] Exception: IOException
+[2026-02-03 16:24:40] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:24:41] INFO    : Initialising background worker process
+[2026-02-03 16:24:42] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:24:43] INFO    : Database connection established
+[2026-02-03 16:24:44] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:24:45] ERROR   : User logged in successfully - [Code: 278] Exception: KeyError
+[2026-02-03 16:24:46] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:24:47] ERROR   : Initialising background worker process - [Code: 447] Exception: KeyError
+[2026-02-03 16:24:48] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:24:49] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:24:50] CRITICAL: Connection to server lost - [Code: 374] Exception: KeyError
+[2026-02-03 16:24:51] CRITICAL: Disk space reaching 90% threshold - [Code: 277] Exception: IOException
+[2026-02-03 16:24:52] CRITICAL: Database connection established - [Code: 468] Exception: NullPointer
+[2026-02-03 16:24:53] CRITICAL: Connection to server lost - [Code: 152] Exception: IOException
+[2026-02-03 16:24:54] WARNING : Initialising background worker process
+[2026-02-03 16:24:55] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:24:56] ERROR   : Failed to fetch data from API - [Code: 423] Exception: IOException
+[2026-02-03 16:24:57] ERROR   : Timeout occurred while waiting for response - [Code: 310] Exception: IOException
+[2026-02-03 16:24:58] WARNING : Database connection established
+[2026-02-03 16:24:59] CRITICAL: Initialising background worker process - [Code: 190] Exception: KeyError
+[2026-02-03 16:25:00] CRITICAL: Failed to fetch data from API - [Code: 491] Exception: KeyError
+[2026-02-03 16:25:01] DEBUG   : Connection to server lost
+[2026-02-03 16:25:02] CRITICAL: Initialising background worker process - [Code: 247] Exception: KeyError
+[2026-02-03 16:25:03] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:25:04] CRITICAL: Disk space reaching 90% threshold - [Code: 170] Exception: KeyError
+[2026-02-03 16:25:05] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:25:06] CRITICAL: User logged in successfully - [Code: 343] Exception: IOException
+[2026-02-03 16:25:07] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:25:08] ERROR   : Timeout occurred while waiting for response - [Code: 406] Exception: IOException
+[2026-02-03 16:25:09] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:25:10] INFO    : Database connection established
+[2026-02-03 16:25:11] WARNING : Database connection established
+[2026-02-03 16:25:12] CRITICAL: Syntax error in configuration file line 42 - [Code: 373] Exception: NullPointer
+[2026-02-03 16:25:13] INFO    : User logged in successfully
+[2026-02-03 16:25:14] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:25:15] CRITICAL: Syntax error in configuration file line 42 - [Code: 285] Exception: KeyError
+[2026-02-03 16:25:16] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:25:17] ERROR   : User logged in successfully - [Code: 298] Exception: KeyError
+[2026-02-03 16:25:18] WARNING : Failed to fetch data from API
+[2026-02-03 16:25:19] ERROR   : Database connection established - [Code: 255] Exception: NullPointer
+[2026-02-03 16:25:20] ERROR   : Connection to server lost - [Code: 246] Exception: IOException
+[2026-02-03 16:25:21] DEBUG   : Initialising background worker process
+[2026-02-03 16:25:22] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:25:23] INFO    : Initialising background worker process
+[2026-02-03 16:25:24] CRITICAL: User logged in successfully - [Code: 465] Exception: NullPointer
+[2026-02-03 16:25:25] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:25:26] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:25:27] WARNING : Failed to fetch data from API
+[2026-02-03 16:25:28] CRITICAL: Syntax error in configuration file line 42 - [Code: 368] Exception: NullPointer
+[2026-02-03 16:25:29] CRITICAL: Initialising background worker process - [Code: 132] Exception: KeyError
+[2026-02-03 16:25:30] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:25:31] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:25:32] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:25:33] ERROR   : Syntax error in configuration file line 42 - [Code: 405] Exception: NullPointer
+[2026-02-03 16:25:34] WARNING : Initialising background worker process
+[2026-02-03 16:25:35] CRITICAL: Connection to server lost - [Code: 454] Exception: IOException
+[2026-02-03 16:25:36] INFO    : User logged in successfully
+[2026-02-03 16:25:37] ERROR   : Disk space reaching 90% threshold - [Code: 358] Exception: KeyError
+[2026-02-03 16:25:38] CRITICAL: User logged in successfully - [Code: 321] Exception: NullPointer
+[2026-02-03 16:25:39] WARNING : Memory leak detected in module 'auth'
+[2026-02-03 16:25:40] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:25:41] INFO    : Failed to fetch data from API
+[2026-02-03 16:25:42] WARNING : Database connection established
+[2026-02-03 16:25:43] INFO    : User logged in successfully
+[2026-02-03 16:25:44] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:25:45] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:25:46] ERROR   : User logged in successfully - [Code: 205] Exception: NullPointer
+[2026-02-03 16:25:47] CRITICAL: Database connection established - [Code: 464] Exception: KeyError
+[2026-02-03 16:25:48] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:25:49] WARNING : Database connection established
+[2026-02-03 16:25:50] CRITICAL: Memory leak detected in module 'auth' - [Code: 237] Exception: IOException
+[2026-02-03 16:25:51] ERROR   : User logged in successfully - [Code: 281] Exception: NullPointer
+[2026-02-03 16:25:52] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:25:53] CRITICAL: Query executed: SELECT * FROM users - [Code: 345] Exception: KeyError
+[2026-02-03 16:25:54] ERROR   : User logged in successfully - [Code: 152] Exception: KeyError
+[2026-02-03 16:25:55] INFO    : Database connection established
+[2026-02-03 16:25:56] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:25:57] CRITICAL: Syntax error in configuration file line 42 - [Code: 233] Exception: IOException
+[2026-02-03 16:25:58] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:25:59] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:26:00] CRITICAL: Connection to server lost - [Code: 304] Exception: IOException
+[2026-02-03 16:26:01] CRITICAL: Syntax error in configuration file line 42 - [Code: 110] Exception: KeyError
+[2026-02-03 16:26:02] DEBUG   : Connection to server lost
+[2026-02-03 16:26:03] DEBUG   : Connection to server lost
+[2026-02-03 16:26:04] ERROR   : Database connection established - [Code: 208] Exception: NullPointer
+[2026-02-03 16:26:05] ERROR   : User logged in successfully - [Code: 309] Exception: KeyError
+[2026-02-03 16:26:06] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:26:07] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:26:08] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:26:09] ERROR   : Disk space reaching 90% threshold - [Code: 351] Exception: KeyError
+[2026-02-03 16:26:10] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:26:11] ERROR   : Syntax error in configuration file line 42 - [Code: 225] Exception: NullPointer
+[2026-02-03 16:26:12] WARNING : Failed to fetch data from API
+[2026-02-03 16:26:13] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:26:14] WARNING : User logged in successfully
+[2026-02-03 16:26:15] DEBUG   : User logged in successfully
+[2026-02-03 16:26:16] CRITICAL: Disk space reaching 90% threshold - [Code: 265] Exception: KeyError
+[2026-02-03 16:26:17] ERROR   : Disk space reaching 90% threshold - [Code: 219] Exception: IOException
+[2026-02-03 16:26:18] CRITICAL: Query executed: SELECT * FROM users - [Code: 248] Exception: IOException
+[2026-02-03 16:26:19] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:26:20] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:26:21] CRITICAL: Initialising background worker process - [Code: 437] Exception: KeyError
+[2026-02-03 16:26:22] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:26:23] CRITICAL: Syntax error in configuration file line 42 - [Code: 128] Exception: IOException
+[2026-02-03 16:26:24] ERROR   : Query executed: SELECT * FROM users - [Code: 337] Exception: NullPointer
+[2026-02-03 16:26:25] CRITICAL: Connection to server lost - [Code: 192] Exception: KeyError
+[2026-02-03 16:26:26] INFO    : User logged in successfully
+[2026-02-03 16:26:27] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:26:28] WARNING : Initialising background worker process
+[2026-02-03 16:26:29] WARNING : Query executed: SELECT * FROM users
+[2026-02-03 16:26:30] CRITICAL: Syntax error in configuration file line 42 - [Code: 321] Exception: KeyError
+[2026-02-03 16:26:31] ERROR   : Failed to fetch data from API - [Code: 370] Exception: KeyError
+[2026-02-03 16:26:32] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:26:33] INFO    : User logged in successfully
+[2026-02-03 16:26:34] WARNING : Initialising background worker process
+[2026-02-03 16:26:35] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:26:36] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:26:37] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:26:38] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:26:39] WARNING : Connection to server lost
+[2026-02-03 16:26:40] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:26:41] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:26:42] ERROR   : Failed to fetch data from API - [Code: 417] Exception: NullPointer
+[2026-02-03 16:26:43] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:26:44] CRITICAL: Failed to fetch data from API - [Code: 103] Exception: IOException
+[2026-02-03 16:26:45] CRITICAL: Query executed: SELECT * FROM users - [Code: 427] Exception: KeyError
+[2026-02-03 16:26:46] INFO    : Connection to server lost
+[2026-02-03 16:26:47] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:26:48] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:26:49] ERROR   : Initialising background worker process - [Code: 404] Exception: NullPointer
+[2026-02-03 16:26:50] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:26:51] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:26:52] CRITICAL: Failed to fetch data from API - [Code: 170] Exception: NullPointer
+[2026-02-03 16:26:53] ERROR   : Initialising background worker process - [Code: 358] Exception: NullPointer
+[2026-02-03 16:26:54] CRITICAL: Initialising background worker process - [Code: 168] Exception: KeyError
+[2026-02-03 16:26:55] CRITICAL: Query executed: SELECT * FROM users - [Code: 487] Exception: KeyError
+[2026-02-03 16:26:56] WARNING : Database connection established
+[2026-02-03 16:26:57] INFO    : Database connection established
+[2026-02-03 16:26:58] ERROR   : User logged in successfully - [Code: 458] Exception: NullPointer
+[2026-02-03 16:26:59] ERROR   : Database connection established - [Code: 470] Exception: KeyError
+[2026-02-03 16:27:00] INFO    : Database connection established
+[2026-02-03 16:27:01] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:27:02] CRITICAL: Failed to fetch data from API - [Code: 333] Exception: KeyError
+[2026-02-03 16:27:03] ERROR   : Memory leak detected in module 'auth' - [Code: 254] Exception: NullPointer
+[2026-02-03 16:27:04] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:27:05] ERROR   : Connection to server lost - [Code: 330] Exception: KeyError
+[2026-02-03 16:27:06] CRITICAL: Timeout occurred while waiting for response - [Code: 349] Exception: IOException
+[2026-02-03 16:27:07] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:27:08] CRITICAL: Initialising background worker process - [Code: 444] Exception: NullPointer
+[2026-02-03 16:27:09] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:27:10] DEBUG   : Syntax error in configuration file line 42
+[2026-02-03 16:27:11] CRITICAL: Failed to fetch data from API - [Code: 115] Exception: NullPointer
+[2026-02-03 16:27:12] INFO    : Initialising background worker process
+[2026-02-03 16:27:13] WARNING : Disk space reaching 90% threshold
+[2026-02-03 16:27:14] CRITICAL: Memory leak detected in module 'auth' - [Code: 103] Exception: IOException
+[2026-02-03 16:27:15] INFO    : Query executed: SELECT * FROM users
+[2026-02-03 16:27:16] DEBUG   : Failed to fetch data from API
+[2026-02-03 16:27:17] ERROR   : Initialising background worker process - [Code: 275] Exception: IOException
+[2026-02-03 16:27:18] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:27:19] DEBUG   : Query executed: SELECT * FROM users
+[2026-02-03 16:27:20] ERROR   : User logged in successfully - [Code: 187] Exception: IOException
+[2026-02-03 16:27:21] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:27:22] INFO    : Failed to fetch data from API
+[2026-02-03 16:27:23] CRITICAL: Initialising background worker process - [Code: 482] Exception: NullPointer
+[2026-02-03 16:27:24] ERROR   : Database connection established - [Code: 405] Exception: IOException
+[2026-02-03 16:27:25] ERROR   : Timeout occurred while waiting for response - [Code: 277] Exception: KeyError
+[2026-02-03 16:27:26] DEBUG   : Memory leak detected in module 'auth'
+[2026-02-03 16:27:27] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:27:28] CRITICAL: Timeout occurred while waiting for response - [Code: 333] Exception: NullPointer
+[2026-02-03 16:27:29] WARNING : Failed to fetch data from API
+[2026-02-03 16:27:30] CRITICAL: User logged in successfully - [Code: 370] Exception: IOException
+[2026-02-03 16:27:31] CRITICAL: Failed to fetch data from API - [Code: 432] Exception: KeyError
+[2026-02-03 16:27:32] DEBUG   : Initialising background worker process
+[2026-02-03 16:27:33] ERROR   : Database connection established - [Code: 356] Exception: KeyError
+[2026-02-03 16:27:34] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:27:35] INFO    : Connection to server lost
+[2026-02-03 16:27:36] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:27:37] ERROR   : Failed to fetch data from API - [Code: 453] Exception: NullPointer
+[2026-02-03 16:27:38] WARNING : Syntax error in configuration file line 42
+[2026-02-03 16:27:39] WARNING : Failed to fetch data from API
+[2026-02-03 16:27:40] WARNING : User logged in successfully
+[2026-02-03 16:27:41] CRITICAL: Failed to fetch data from API - [Code: 472] Exception: IOException
+[2026-02-03 16:27:42] WARNING : Connection to server lost
+[2026-02-03 16:27:43] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:27:44] WARNING : Connection to server lost
+[2026-02-03 16:27:45] DEBUG   : Initialising background worker process
+[2026-02-03 16:27:46] CRITICAL: Connection to server lost - [Code: 471] Exception: IOException
+[2026-02-03 16:27:47] INFO    : Disk space reaching 90% threshold
+[2026-02-03 16:27:48] ERROR   : User logged in successfully - [Code: 204] Exception: IOException
+[2026-02-03 16:27:49] DEBUG   : Disk space reaching 90% threshold
+[2026-02-03 16:27:50] DEBUG   : Connection to server lost
+[2026-02-03 16:27:51] ERROR   : Initialising background worker process - [Code: 356] Exception: IOException
+[2026-02-03 16:27:52] WARNING : Failed to fetch data from API
+[2026-02-03 16:27:53] ERROR   : Database connection established - [Code: 216] Exception: IOException
+[2026-02-03 16:27:54] INFO    : Memory leak detected in module 'auth'
+[2026-02-03 16:27:55] INFO    : Syntax error in configuration file line 42
+[2026-02-03 16:27:56] INFO    : User logged in successfully
+[2026-02-03 16:27:57] WARNING : Database connection established
+[2026-02-03 16:27:58] INFO    : Initialising background worker process
+[2026-02-03 16:27:59] CRITICAL: User logged in successfully - [Code: 148] Exception: NullPointer
+[2026-02-03 16:28:00] DEBUG   : User logged in successfully
+[2026-02-03 16:28:01] WARNING : Connection to server lost
+[2026-02-03 16:28:02] INFO    : User logged in successfully
+[2026-02-03 16:28:03] INFO    : Timeout occurred while waiting for response
+[2026-02-03 16:28:04] DEBUG   : Timeout occurred while waiting for response
+[2026-02-03 16:28:05] ERROR   : Syntax error in configuration file line 42 - [Code: 220] Exception: IOException
+[2026-02-03 16:28:06] ERROR   : Failed to fetch data from API - [Code: 394] Exception: KeyError
+[2026-02-03 16:28:07] WARNING : Timeout occurred while waiting for response
+[2026-02-03 16:28:08] WARNING : Database connection established
+[2026-02-03 16:28:09] DEBUG   : Connection to server lost
+[2026-02-03 16:28:10] ERROR   : Memory leak detected in module 'auth' - [Code: 271] Exception: IOException
+[2026-02-03 16:28:11] ERROR   : Initialising background worker process - [Code: 205] Exception: NullPointer
