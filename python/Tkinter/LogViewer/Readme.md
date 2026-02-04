@@ -31,6 +31,15 @@ $ pipenv shell
 ```
 
 
+
+# テスト実行
+
+```bash
+(LogViewer) $ pytest test_log_system.py
+```
+
+
+
 # 取説
 
 ## Professional Log Viewer
@@ -71,11 +80,3 @@ SQLiteエンジンを搭載した、高速・安全なエンジニア向けロ�
 
 ### 🛡️ ライセンス
 MIT License / 自由に変更・配布してご利用いただけます。
-
-
-
-# テスト実行
-
-```bash
-(LogViewer) $ pytest test_log_system.py
-```
